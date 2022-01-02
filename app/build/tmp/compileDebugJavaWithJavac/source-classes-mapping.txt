@@ -1,0 +1,2 @@
+com/igor/jetpackcompose/BuildConfig.java
+ com.igor.jetpackcompose.BuildConfig
