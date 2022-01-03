@@ -28,7 +28,8 @@ class RowActivity : ComponentActivity() {
                             .height(500.dp)
                             .width(500.dp)
                             .background(Color.LightGray),
-                        horizontalArrangement = Arrangement.Start
+                        horizontalArrangement = Arrangement.Start,
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
                         CustomItem(weight = 3f, color = MaterialTheme.colors.secondary)
                         CustomItem(weight = 1f)
