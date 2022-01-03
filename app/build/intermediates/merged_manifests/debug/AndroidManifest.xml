@@ -20,6 +20,16 @@
         android:testOnly="true"
         android:theme="@style/Theme.JetpackCompose" >
         <activity
+            android:name="com.igor.jetpackcompose.RowActivity"
+            android:exported="false"
+            android:label="@string/title_activity_row"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
+            android:name="com.igor.jetpackcompose.ColumnActivity"
+            android:exported="false"
+            android:label="@string/title_activity_column"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
             android:name="com.igor.jetpackcompose.MessagesListActivity"
             android:exported="false"
             android:label="@string/title_activity_messages_list"

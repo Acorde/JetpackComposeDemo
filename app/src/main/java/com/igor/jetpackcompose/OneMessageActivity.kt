@@ -1,26 +1,30 @@
 package com.igor.jetpackcompose
 
-import android.content.res.Configuration
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.ExitToApp
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.igor.jetpackcompose.models.Message
-import com.igor.jetpackcompose.models.SampleData
 import com.igor.jetpackcompose.ui.ui.theme.JetpackComposeTheme
 
 class OneMessageActivity : ComponentActivity() {
@@ -28,7 +32,19 @@ class OneMessageActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             JetpackComposeTheme {
-                MessageCard(Message("Android", "Jetpack Compose"))
+                Column {
+                    MessageCard(Message("Android", "Jetpack Compose"))
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Divider()
+                    MyComposableButton()
+                    Spacer(modifier = Modifier.height(10.dp))
+                    TextFieldWithStateExample()
+                    Spacer(modifier = Modifier.height(10.dp))
+                    TextFieldNoStateExample("Test") { onTextChanged ->
+                        Log.d("IgorTest", "text changed to: $onTextChanged")
+                    }
+                }
+
             }
         }
     }
@@ -78,11 +94,50 @@ class OneMessageActivity : ComponentActivity() {
 
     }
 
-    @Preview
+    @SuppressLint("UnrememberedMutableState")
+    @Composable
+    fun MyComposableButton() {
+        var muValue by remember { mutableStateOf(false) }
+        //  var muValue = false // not working
+        Log.d("Recomposition", "MyComposition")
+
+        Button(
+            onClick = { muValue = !muValue },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(text = "$muValue")
+            Log.d("Recomposition", "Button Content Lambda")
+        }
+    }
+
+    //Composable with state
+    @Composable
+    fun TextFieldWithStateExample() {
+        var name by remember { mutableStateOf("") }
+
+        TextField(value = name, onValueChange = { name = it }, label = { Text("Name") })
+    }
+
+    @Composable
+    fun TextFieldNoStateExample(name: String, onNameChange: (String) -> Unit) {
+        TextField(value = name, onValueChange = onNameChange, label = { Text("Name") })
+    }
+
+
+
+    @Preview(showBackground = true)
     @Composable
     fun PreviewConversation() {
         JetpackComposeTheme {
-            MessageCard(Message("Android", "Jetpack Compose"))
+            Column(modifier = Modifier.fillMaxSize()) {
+                MessageCard(Message("Android", "Jetpack Compose"))
+                Spacer(modifier = Modifier.height(4.dp))
+                MyComposableButton()
+                TextFieldNoStateExample("Test"){onTextChanged ->
+
+                }
+            }
+
         }
     }
 }

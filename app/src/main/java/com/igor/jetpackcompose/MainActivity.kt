@@ -62,27 +62,25 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun navigateToActivity(activityEnum: ActivitiesEnum) {
-        when (activityEnum) {
-            ActivitiesEnum.MESSAGE_LIST_ACTIVITY -> startActivity(
-                Intent(
-                    this,
-                    MessagesListActivity::class.java
-                )
+        val intent = when (activityEnum) {
+            ActivitiesEnum.MESSAGE_LIST_ACTIVITY -> Intent(this, MessagesListActivity::class.java)
+            ActivitiesEnum.ONE_MESSAGE_ACTIVITY -> Intent(this, OneMessageActivity::class.java)
+            ActivitiesEnum.COLUMN_EXAMPLE_ACTIVITY -> Intent(
+                this,
+                ColumnActivity::class.java
             )
-            ActivitiesEnum.ONE_MESSAGE_ACTIVITY -> startActivity(
-                Intent(
-                    this,
-                    OneMessageActivity::class.java
-                )
-            )
+            ActivitiesEnum.ROW_EXAMPLE_ACTIVITY -> Intent(this, RowActivity::class.java)
         }
+
+        startActivity(intent)
+
     }
 
     enum class ActivitiesEnum {
         ONE_MESSAGE_ACTIVITY,
-        MESSAGE_LIST_ACTIVITY
-
-
+        MESSAGE_LIST_ACTIVITY,
+        COLUMN_EXAMPLE_ACTIVITY,
+        ROW_EXAMPLE_ACTIVITY
     }
 }
 

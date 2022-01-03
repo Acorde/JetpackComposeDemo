@@ -2451,8 +2451,10 @@ string selected
 string status_bar_notification_info_overflow
 string tab
 string template_percent
+string title_activity_column
 string title_activity_messages_list
 string title_activity_one_message
+string title_activity_row
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow

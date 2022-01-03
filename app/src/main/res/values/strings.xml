@@ -2,4 +2,6 @@
     <string name="app_name">JetpackCompose</string>
     <string name="title_activity_one_message">OneMessageActivity</string>
     <string name="title_activity_messages_list">MessagesListActivity</string>
+    <string name="title_activity_column">ColumnActivity</string>
+    <string name="title_activity_row">RowActivity</string>
 </resources>

@@ -10,6 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackCompose">
         <activity
+            android:name=".RowActivity"
+            android:exported="false"
+            android:label="@string/title_activity_row"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
+            android:name=".ColumnActivity"
+            android:exported="false"
+            android:label="@string/title_activity_column"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
             android:name=".MessagesListActivity"
             android:exported="false"
             android:label="@string/title_activity_messages_list"
