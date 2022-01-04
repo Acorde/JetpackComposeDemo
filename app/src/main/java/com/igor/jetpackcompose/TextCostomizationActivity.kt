@@ -46,10 +46,16 @@ class TextCostomizationActivity : ComponentActivity() {
                     ) {
 
                         TextCostomization(R.string.app_name)
+                        Divider()
                         TextCostomization2("Hello world2")
+                        Divider()
                         TextCostomizationAnnotatedString()
+                        Divider()
                         TextRepeat()
+                        Divider()
                         selectableText()
+                        Divider()
+                        SuperScriptText("Normal String", "SuperText String", "SubString String")
                     }
 
                 }
