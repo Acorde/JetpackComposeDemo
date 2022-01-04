@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackCompose">
         <activity
+            android:name=".TextCostomizationActivity"
+            android:exported="true"
+            android:label="@string/title_activity_text_costomization"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
             android:name=".BoxLayoutActivity"
             android:exported="true"
             android:label="@string/title_activity_box_layout"

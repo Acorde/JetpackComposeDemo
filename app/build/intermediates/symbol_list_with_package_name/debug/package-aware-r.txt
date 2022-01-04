@@ -2456,6 +2456,7 @@ string title_activity_column
 string title_activity_messages_list
 string title_activity_one_message
 string title_activity_row
+string title_activity_text_costomization
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
