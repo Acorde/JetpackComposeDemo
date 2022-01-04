@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-55:12
-INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-55:12
-INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-55:12
-INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-55:12
+ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-60:12
 MERGED from [androidx.compose.ui:ui-tooling:1.0.5] /Users/igor.f/.gradle/caches/transforms-3/bf1daebaa77521ce6e4ffde730535396/transformed/jetified-ui-tooling-1.0.5/AndroidManifest.xml:17:1-30:12
 MERGED from [androidx.activity:activity-compose:1.4.0] /Users/igor.f/.gradle/caches/transforms-3/856ede9367d6e9e2bb7dc8b3104d879b/transformed/jetified-activity-compose-1.4.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity-ktx:1.4.0] /Users/igor.f/.gradle/caches/transforms-3/05d4c372d976fe3ca2d04cbac3f93685/transformed/jetified-activity-ktx-1.4.0/AndroidManifest.xml:17:1-24:12
@@ -72,25 +72,25 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/igor.f/.gradle/cac
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/3bd4315334d0d792350885865b61df50/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/b0c3538f8a3e62974740ae17328cfd4b/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/igor.f/.gradle/caches/transforms-3/86e7cf17d3596e7fd7df02a88d8fd194/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-55:12
-INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-55:12
-INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-55:12
+INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-60:12
 	package
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:3:5-38
 		INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-55:12
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-60:12
 		INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-55:12
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:1-60:12
 		INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:5:5-53:19
+ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:5:5-58:19
 MERGED from [androidx.compose.ui:ui-tooling:1.0.5] /Users/igor.f/.gradle/caches/transforms-3/bf1daebaa77521ce6e4ffde730535396/transformed/jetified-ui-tooling-1.0.5/AndroidManifest.xml:24:5-28:19
 MERGED from [androidx.compose.ui:ui-tooling:1.0.5] /Users/igor.f/.gradle/caches/transforms-3/bf1daebaa77521ce6e4ffde730535396/transformed/jetified-ui-tooling-1.0.5/AndroidManifest.xml:24:5-28:19
 MERGED from [com.google.android.material:material:1.4.0] /Users/igor.f/.gradle/caches/transforms-3/f2549c9573ce9dbc59394446c4ad208f/transformed/material-1.4.0/AndroidManifest.xml:22:5-20
@@ -123,86 +123,96 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] /Users/igor.f/.gradle/cache
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:11:9-52
-activity#com.igor.jetpackcompose.TextCostomizationActivity
+activity#com.igor.jetpackcompose.ExpandableCardActivity
 ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:12:9-16:71
 	android:label
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:15:13-70
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:15:13-67
 	android:exported
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:14:13-36
 	android:theme
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:16:13-68
 	android:name
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:13:13-54
-activity#com.igor.jetpackcompose.BoxLayoutActivity
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:13:13-51
+activity#com.igor.jetpackcompose.TextCostomizationActivity
 ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:17:9-21:71
 	android:label
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:20:13-62
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:20:13-70
 	android:exported
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:19:13-36
 	android:theme
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:21:13-68
 	android:name
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:18:13-46
-activity#com.igor.jetpackcompose.RowActivity
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:18:13-54
+activity#com.igor.jetpackcompose.BoxLayoutActivity
 ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:22:9-26:71
 	android:label
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:25:13-55
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:25:13-62
 	android:exported
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:24:13-37
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:24:13-36
 	android:theme
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:26:13-68
 	android:name
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:23:13-40
-activity#com.igor.jetpackcompose.ColumnActivity
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:23:13-46
+activity#com.igor.jetpackcompose.RowActivity
 ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:27:9-31:71
 	android:label
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:30:13-58
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:30:13-55
 	android:exported
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:29:13-37
 	android:theme
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:31:13-68
 	android:name
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:28:13-43
-activity#com.igor.jetpackcompose.MessagesListActivity
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:28:13-40
+activity#com.igor.jetpackcompose.ColumnActivity
 ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:32:9-36:71
 	android:label
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:35:13-65
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:35:13-58
 	android:exported
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:34:13-37
 	android:theme
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:36:13-68
 	android:name
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:33:13-49
-activity#com.igor.jetpackcompose.OneMessageActivity
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:33:13-43
+activity#com.igor.jetpackcompose.MessagesListActivity
 ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:37:9-41:71
 	android:label
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:40:13-63
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:40:13-65
 	android:exported
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:39:13-37
 	android:theme
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:41:13-68
 	android:name
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:38:13-47
-activity#com.igor.jetpackcompose.MainActivity
-ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:42:9-52:20
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:38:13-49
+activity#com.igor.jetpackcompose.OneMessageActivity
+ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:42:9-46:71
 	android:label
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:45:13-45
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:45:13-63
 	android:exported
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:44:13-36
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:44:13-37
 	android:theme
 		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:46:13-68
 	android:name
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:43:13-41
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:43:13-47
+activity#com.igor.jetpackcompose.MainActivity
+ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:47:9-57:20
+	android:label
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:50:13-45
+	android:exported
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:49:13-36
+	android:theme
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:51:13-68
+	android:name
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:48:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:47:13-51:29
+ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:52:13-56:29
 action#android.intent.action.MAIN
-ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:48:17-69
+ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:53:17-69
 	android:name
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:48:25-66
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:53:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:50:17-77
+ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:55:17-77
 	android:name
-		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:50:27-74
+		ADDED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:55:27-74
 uses-sdk
 INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml

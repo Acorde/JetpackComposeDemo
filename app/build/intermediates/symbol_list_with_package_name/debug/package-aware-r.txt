@@ -2453,6 +2453,7 @@ string tab
 string template_percent
 string title_activity_box_layout
 string title_activity_column
+string title_activity_expandable_card
 string title_activity_messages_list
 string title_activity_one_message
 string title_activity_row

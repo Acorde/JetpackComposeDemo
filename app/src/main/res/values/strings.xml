@@ -6,4 +6,5 @@
     <string name="title_activity_row">RowActivity</string>
     <string name="title_activity_box_layout">BoxLayoutActivity</string>
     <string name="title_activity_text_costomization">TextCostomizationActivity</string>
+    <string name="title_activity_expandable_card">ExpandableCardActivity</string>
 </resources>

@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackCompose">
         <activity
+            android:name=".ExpandableCardActivity"
+            android:exported="true"
+            android:label="@string/title_activity_expandable_card"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
             android:name=".TextCostomizationActivity"
             android:exported="true"
             android:label="@string/title_activity_text_costomization"

@@ -1206,6 +1206,7 @@
     <string name="template_percent"><ns2:g id="percentage">%1$d</ns2:g> percent.</string>
     <string name="title_activity_box_layout">BoxLayoutActivity</string>
     <string name="title_activity_column">ColumnActivity</string>
+    <string name="title_activity_expandable_card">ExpandableCardActivity</string>
     <string name="title_activity_messages_list">MessagesListActivity</string>
     <string name="title_activity_one_message">OneMessageActivity</string>
     <string name="title_activity_row">RowActivity</string>
