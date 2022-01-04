@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackCompose">
         <activity
+            android:name=".BoxLayoutActivity"
+            android:exported="true"
+            android:label="@string/title_activity_box_layout"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
             android:name=".RowActivity"
             android:exported="false"
             android:label="@string/title_activity_row"

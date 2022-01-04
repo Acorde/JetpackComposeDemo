@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nb/values-nb.xml",
+            "outputFile": "/Users/igor.f/Android/Study/JetpackComposeDemo/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nb/values-nb.xml",
             "map": [
                 {
                     "source": "/Users/igor.f/.gradle/caches/transforms-3/e55bf8fe1a56cc081f363c8bc40124d3/transformed/appcompat-1.4.0/res/values-nb/values-nb.xml",

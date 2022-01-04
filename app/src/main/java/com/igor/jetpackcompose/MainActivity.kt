@@ -70,6 +70,7 @@ class MainActivity : ComponentActivity() {
                 ColumnActivity::class.java
             )
             ActivitiesEnum.ROW_EXAMPLE_ACTIVITY -> Intent(this, RowActivity::class.java)
+            ActivitiesEnum.BOX_EXAMPLE_ACTIVITY -> Intent(this, BoxLayoutActivity::class.java)
         }
 
         startActivity(intent)
@@ -80,7 +81,8 @@ class MainActivity : ComponentActivity() {
         ONE_MESSAGE_ACTIVITY,
         MESSAGE_LIST_ACTIVITY,
         COLUMN_EXAMPLE_ACTIVITY,
-        ROW_EXAMPLE_ACTIVITY
+        ROW_EXAMPLE_ACTIVITY,
+        BOX_EXAMPLE_ACTIVITY
     }
 }
 

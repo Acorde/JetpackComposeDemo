@@ -20,6 +20,11 @@
         android:testOnly="true"
         android:theme="@style/Theme.JetpackCompose" >
         <activity
+            android:name="com.igor.jetpackcompose.BoxLayoutActivity"
+            android:exported="true"
+            android:label="@string/title_activity_box_layout"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
             android:name="com.igor.jetpackcompose.RowActivity"
             android:exported="false"
             android:label="@string/title_activity_row"
