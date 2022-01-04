@@ -7,6 +7,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -20,10 +21,12 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.igor.jetpackcompose.ui.theme.JetpackComposeTheme
@@ -131,6 +134,33 @@ fun ColumnScope.TextRepeat(){
     Text(text = "Hellow World ".repeat(50), maxLines = 2, overflow = TextOverflow.Ellipsis)
 }
 
+@Composable
+fun SuperScriptText(normalString : String, superText : String, subString : String, normalTextSize : TextUnit = MaterialTheme.typography.subtitle1.fontSize){
+    Text(buildAnnotatedString {
+        withStyle(style = SpanStyle(
+            fontSize = MaterialTheme.typography.overline.fontSize,
+            fontWeight = FontWeight.Normal,
+            baselineShift = BaselineShift.Subscript
+        )){
+            append(subString)
+        }
+        withStyle(style = SpanStyle(
+            fontSize = normalTextSize
+        )){
+            append(normalString)
+        }
+
+        withStyle(style = SpanStyle(
+            fontSize = MaterialTheme.typography.overline.fontSize,
+            fontWeight = FontWeight.Normal,
+            baselineShift = BaselineShift.Superscript
+        )){
+            append(superText)
+        }
+
+    })
+}
+
 @Preview(showBackground = true)
 @Composable
 fun TextCostomizationPreview() {
@@ -143,10 +173,16 @@ fun TextCostomizationPreview() {
         ) {
 
             TextCostomization(R.string.app_name)
+            Divider()
             TextCostomization2("Hello world2")
+            Divider()
             TextCostomizationAnnotatedString()
+            Divider()
             TextRepeat()
+            Divider()
             selectableText()
+            Divider()
+            SuperScriptText("Normal String", "SuperText String", "SubString String")
         }
 
     }
