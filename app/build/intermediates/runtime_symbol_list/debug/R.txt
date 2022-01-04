@@ -2453,10 +2453,11 @@ int string template_percent 0x7f0f0075
 int string title_activity_box_layout 0x7f0f0076
 int string title_activity_column 0x7f0f0077
 int string title_activity_expandable_card 0x7f0f0078
-int string title_activity_messages_list 0x7f0f0079
-int string title_activity_one_message 0x7f0f007a
-int string title_activity_row 0x7f0f007b
-int string title_activity_text_costomization 0x7f0f007c
+int string title_activity_lazt_colum 0x7f0f0079
+int string title_activity_messages_list 0x7f0f007a
+int string title_activity_one_message 0x7f0f007b
+int string title_activity_row 0x7f0f007c
+int string title_activity_text_costomization 0x7f0f007d
 int style AlertDialog_AppCompat 0x7f100000
 int style AlertDialog_AppCompat_Light 0x7f100001
 int style AndroidThemeColorAccentYellow 0x7f100002

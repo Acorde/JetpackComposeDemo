@@ -7,4 +7,5 @@
     <string name="title_activity_box_layout">BoxLayoutActivity</string>
     <string name="title_activity_text_costomization">TextCostomizationActivity</string>
     <string name="title_activity_expandable_card">ExpandableCardActivity</string>
+    <string name="title_activity_lazt_colum">LaztColumActivity</string>
 </resources>
