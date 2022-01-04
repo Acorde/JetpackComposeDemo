@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.selection.DisableSelection
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -42,6 +44,9 @@ class TextCostomizationActivity : ComponentActivity() {
 
                         TextCostomization(R.string.app_name)
                         TextCostomization2("Hello world2")
+                        TextCostomizationAnnotatedString()
+                        TextRepeat()
+                        selectableText()
                     }
 
                 }
@@ -76,6 +81,20 @@ fun ColumnScope.TextCostomization2(text: String) {
         fontWeight = FontWeight.ExtraBold,
         textAlign = TextAlign.Justify
     )
+}
+
+@Composable
+fun selectableText(){
+    SelectionContainer {
+        Column {
+            Text(text = "This text is selectable")
+            DisableSelection {
+                Text(text = "This text is not selectable")
+            }
+            Text(text = "This text is selectable")
+
+        }
+    }
 }
 
 @Composable
@@ -127,6 +146,7 @@ fun TextCostomizationPreview() {
             TextCostomization2("Hello world2")
             TextCostomizationAnnotatedString()
             TextRepeat()
+            selectableText()
         }
 
     }
