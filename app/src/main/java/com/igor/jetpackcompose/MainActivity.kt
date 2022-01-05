@@ -73,6 +73,7 @@ class MainActivity : ComponentActivity() {
             ActivitiesEnum.BOX_EXAMPLE_ACTIVITY -> Intent(this, BoxLayoutActivity::class.java)
             ActivitiesEnum.TEXT_CUSTOMIZATION_ACTIVITY -> Intent(this, TextCostomizationActivity::class.java)
             ActivitiesEnum.EXPANDABLE_CARD_ACTIVITY -> Intent(this, ExpandableCardActivity::class.java)
+            ActivitiesEnum.LAZY_COLUMN_ACTIVITY -> Intent(this, LazyColumActivity::class.java)
         }
 
         startActivity(intent)
@@ -86,7 +87,8 @@ class MainActivity : ComponentActivity() {
         ROW_EXAMPLE_ACTIVITY,
         BOX_EXAMPLE_ACTIVITY,
         TEXT_CUSTOMIZATION_ACTIVITY,
-        EXPANDABLE_CARD_ACTIVITY
+        EXPANDABLE_CARD_ACTIVITY,
+        LAZY_COLUMN_ACTIVITY
     }
 }
 

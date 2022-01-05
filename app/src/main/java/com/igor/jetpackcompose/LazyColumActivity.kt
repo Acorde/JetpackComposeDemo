@@ -25,7 +25,7 @@ import com.igor.jetpackcompose.compose_custom_component.CustomItem
 import com.igor.jetpackcompose.model.PersonRepository
 import com.igor.jetpackcompose.ui.theme.JetpackComposeTheme
 
-class LaztColumActivity : ComponentActivity() {
+class LazyColumActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -76,7 +76,7 @@ class LaztColumActivity : ComponentActivity() {
 @ExperimentalFoundationApi
 @Preview(showBackground = true)
 @Composable
-fun LaztColumActivityStickyHeaderPreview() {
+fun LazyColumnActivityStickyHeaderPreview() {
     JetpackComposeTheme {
         val sections = listOf("A", "B", "C", "D", "E", "F", "G")
 

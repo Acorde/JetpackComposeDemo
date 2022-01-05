@@ -6,183 +6,184 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="26"
-8-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml
+8-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="31" />
-9-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml
+9-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:5:5-63:19
+11-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:5:5-63:19
 12        android:allowBackup="true"
-12-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:6:9-35
+12-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 13-->[androidx.core:core:1.7.0] /Users/igor.f/.gradle/caches/transforms-3/d560c4a192d5cdf8e7cf8f3d0a64abaa/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
 14        android:debuggable="true"
 15        android:extractNativeLibs="false"
 16        android:icon="@mipmap/ic_launcher"
-16-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:7:9-43
+16-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:7:9-43
 17        android:label="@string/app_name"
-17-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:8:9-41
+17-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:8:9-41
 18        android:roundIcon="@mipmap/ic_launcher_round"
-18-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:9:9-54
+18-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:9:9-54
 19        android:supportsRtl="true"
-19-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:10:9-35
-20        android:theme="@style/Theme.JetpackCompose" >
-20-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:11:9-52
-21        <activity
-21-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:12:9-16:71
-22            android:name="com.igor.jetpackcompose.LaztColumActivity"
-22-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:13:13-46
-23            android:exported="true"
-23-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:14:13-36
-24            android:label="@string/title_activity_lazt_colum"
-24-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:15:13-62
-25            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-25-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:16:13-68
-26        <activity
-26-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:17:9-21:71
-27            android:name="com.igor.jetpackcompose.ExpandableCardActivity"
-27-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:18:13-51
-28            android:exported="true"
-28-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:19:13-36
-29            android:label="@string/title_activity_expandable_card"
-29-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:20:13-67
-30            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-30-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:21:13-68
-31        <activity
-31-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:22:9-26:71
-32            android:name="com.igor.jetpackcompose.TextCostomizationActivity"
-32-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:23:13-54
-33            android:exported="true"
-33-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:24:13-36
-34            android:label="@string/title_activity_text_costomization"
-34-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:25:13-70
-35            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-35-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:26:13-68
-36        <activity
-36-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:27:9-31:71
-37            android:name="com.igor.jetpackcompose.BoxLayoutActivity"
-37-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:28:13-46
-38            android:exported="true"
-38-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:29:13-36
-39            android:label="@string/title_activity_box_layout"
-39-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:30:13-62
-40            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-40-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:31:13-68
-41        <activity
-41-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:32:9-36:71
-42            android:name="com.igor.jetpackcompose.RowActivity"
-42-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:33:13-40
-43            android:exported="false"
-43-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:34:13-37
-44            android:label="@string/title_activity_row"
-44-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:35:13-55
-45            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-45-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:36:13-68
-46        <activity
-46-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:37:9-41:71
-47            android:name="com.igor.jetpackcompose.ColumnActivity"
-47-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:38:13-43
-48            android:exported="false"
-48-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:39:13-37
-49            android:label="@string/title_activity_column"
-49-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:40:13-58
-50            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-50-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:41:13-68
-51        <activity
-51-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:42:9-46:71
-52            android:name="com.igor.jetpackcompose.MessagesListActivity"
-52-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:43:13-49
-53            android:exported="false"
-53-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:44:13-37
-54            android:label="@string/title_activity_messages_list"
-54-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:45:13-65
-55            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-55-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:46:13-68
-56        <activity
-56-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:47:9-51:71
-57            android:name="com.igor.jetpackcompose.OneMessageActivity"
-57-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:48:13-47
-58            android:exported="false"
-58-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:49:13-37
-59            android:label="@string/title_activity_one_message"
-59-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:50:13-63
-60            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-60-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:51:13-68
-61        <activity
-61-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:52:9-62:20
-62            android:name="com.igor.jetpackcompose.MainActivity"
-62-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:53:13-41
-63            android:exported="true"
-63-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:54:13-36
-64            android:label="@string/app_name"
-64-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:55:13-45
-65            android:theme="@style/Theme.JetpackCompose.NoActionBar" >
-65-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:56:13-68
-66            <intent-filter>
-66-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:57:13-61:29
-67                <action android:name="android.intent.action.MAIN" />
-67-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:58:17-69
-67-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:58:25-66
-68
-69                <category android:name="android.intent.category.LAUNCHER" />
-69-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:60:17-77
-69-->/Users/igor.f/Android/Study/JetpackComposeDemo/app/src/main/AndroidManifest.xml:60:27-74
-70            </intent-filter>
-71        </activity>
-72        <activity
-72-->[androidx.compose.ui:ui-tooling:1.0.5] /Users/igor.f/.gradle/caches/transforms-3/bf1daebaa77521ce6e4ffde730535396/transformed/jetified-ui-tooling-1.0.5/AndroidManifest.xml:25:9-27:39
-73            android:name="androidx.compose.ui.tooling.PreviewActivity"
-73-->[androidx.compose.ui:ui-tooling:1.0.5] /Users/igor.f/.gradle/caches/transforms-3/bf1daebaa77521ce6e4ffde730535396/transformed/jetified-ui-tooling-1.0.5/AndroidManifest.xml:26:13-71
-74            android:exported="true" />
-74-->[androidx.compose.ui:ui-tooling:1.0.5] /Users/igor.f/.gradle/caches/transforms-3/bf1daebaa77521ce6e4ffde730535396/transformed/jetified-ui-tooling-1.0.5/AndroidManifest.xml:27:13-36
-75
-76        <provider
-76-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
-77            android:name="androidx.startup.InitializationProvider"
-77-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
-78            android:authorities="com.igor.jetpackcompose.androidx-startup"
-78-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
-79            android:exported="false" >
-79-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
-80            <meta-data
-80-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
-81                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-81-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
-82                android:value="androidx.startup" />
-82-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
-83            <meta-data
-83-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/igor.f/.gradle/caches/transforms-3/3ea8427566ab1a3f6451290689722358/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
-84                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-84-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/igor.f/.gradle/caches/transforms-3/3ea8427566ab1a3f6451290689722358/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
-85                android:value="androidx.startup" />
-85-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/igor.f/.gradle/caches/transforms-3/3ea8427566ab1a3f6451290689722358/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
-86            <meta-data
-86-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:31:13-33:52
-87                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-87-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:32:17-85
-88                android:value="androidx.startup" />
-88-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:33:17-49
-89        </provider>
-90
-91        <receiver
-91-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:36:9-45:20
-92            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-92-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:37:13-76
-93            android:directBootAware="false"
-93-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:38:13-44
-94            android:enabled="true"
-94-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:39:13-35
-95            android:exported="true"
-95-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:40:13-36
-96            android:permission="android.permission.DUMP" >
-96-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:41:13-57
-97            <intent-filter>
-97-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:42:13-44:29
-98                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-98-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:43:17-91
-98-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:43:25-88
-99            </intent-filter>
-100        </receiver>
-101    </application>
-102
-103</manifest>
+19-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:10:9-35
+20        android:testOnly="true"
+21        android:theme="@style/Theme.JetpackCompose" >
+21-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:11:9-52
+22        <activity
+22-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:12:9-16:71
+23            android:name="com.igor.jetpackcompose.LaztColumActivity"
+23-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:13:13-46
+24            android:exported="true"
+24-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:14:13-36
+25            android:label="@string/title_activity_lazt_colum"
+25-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:15:13-62
+26            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+26-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:16:13-68
+27        <activity
+27-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:17:9-21:71
+28            android:name="com.igor.jetpackcompose.ExpandableCardActivity"
+28-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:18:13-51
+29            android:exported="true"
+29-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:19:13-36
+30            android:label="@string/title_activity_expandable_card"
+30-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:20:13-67
+31            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+31-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:21:13-68
+32        <activity
+32-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:22:9-26:71
+33            android:name="com.igor.jetpackcompose.TextCostomizationActivity"
+33-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:23:13-54
+34            android:exported="true"
+34-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:24:13-36
+35            android:label="@string/title_activity_text_costomization"
+35-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:25:13-70
+36            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+36-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:26:13-68
+37        <activity
+37-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:27:9-31:71
+38            android:name="com.igor.jetpackcompose.BoxLayoutActivity"
+38-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:28:13-46
+39            android:exported="true"
+39-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:29:13-36
+40            android:label="@string/title_activity_box_layout"
+40-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:30:13-62
+41            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+41-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:31:13-68
+42        <activity
+42-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:32:9-36:71
+43            android:name="com.igor.jetpackcompose.RowActivity"
+43-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:33:13-40
+44            android:exported="false"
+44-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:34:13-37
+45            android:label="@string/title_activity_row"
+45-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:35:13-55
+46            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+46-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:36:13-68
+47        <activity
+47-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:37:9-41:71
+48            android:name="com.igor.jetpackcompose.ColumnActivity"
+48-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:38:13-43
+49            android:exported="false"
+49-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:39:13-37
+50            android:label="@string/title_activity_column"
+50-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:40:13-58
+51            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+51-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:41:13-68
+52        <activity
+52-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:42:9-46:71
+53            android:name="com.igor.jetpackcompose.MessagesListActivity"
+53-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:43:13-49
+54            android:exported="false"
+54-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:44:13-37
+55            android:label="@string/title_activity_messages_list"
+55-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:45:13-65
+56            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+56-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:46:13-68
+57        <activity
+57-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:47:9-51:71
+58            android:name="com.igor.jetpackcompose.OneMessageActivity"
+58-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:48:13-47
+59            android:exported="false"
+59-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:49:13-37
+60            android:label="@string/title_activity_one_message"
+60-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:50:13-63
+61            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+61-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:51:13-68
+62        <activity
+62-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:52:9-62:20
+63            android:name="com.igor.jetpackcompose.MainActivity"
+63-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:53:13-41
+64            android:exported="true"
+64-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:54:13-36
+65            android:label="@string/app_name"
+65-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:55:13-45
+66            android:theme="@style/Theme.JetpackCompose.NoActionBar" >
+66-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:56:13-68
+67            <intent-filter>
+67-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:57:13-61:29
+68                <action android:name="android.intent.action.MAIN" />
+68-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:58:17-69
+68-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:58:25-66
+69
+70                <category android:name="android.intent.category.LAUNCHER" />
+70-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:60:17-77
+70-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:60:27-74
+71            </intent-filter>
+72        </activity>
+73        <activity
+73-->[androidx.compose.ui:ui-tooling:1.0.5] /Users/igor.f/.gradle/caches/transforms-3/bf1daebaa77521ce6e4ffde730535396/transformed/jetified-ui-tooling-1.0.5/AndroidManifest.xml:25:9-27:39
+74            android:name="androidx.compose.ui.tooling.PreviewActivity"
+74-->[androidx.compose.ui:ui-tooling:1.0.5] /Users/igor.f/.gradle/caches/transforms-3/bf1daebaa77521ce6e4ffde730535396/transformed/jetified-ui-tooling-1.0.5/AndroidManifest.xml:26:13-71
+75            android:exported="true" />
+75-->[androidx.compose.ui:ui-tooling:1.0.5] /Users/igor.f/.gradle/caches/transforms-3/bf1daebaa77521ce6e4ffde730535396/transformed/jetified-ui-tooling-1.0.5/AndroidManifest.xml:27:13-36
+76
+77        <provider
+77-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+78            android:name="androidx.startup.InitializationProvider"
+78-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+79            android:authorities="com.igor.jetpackcompose.androidx-startup"
+79-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+80            android:exported="false" >
+80-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+81            <meta-data
+81-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+82                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+82-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+83                android:value="androidx.startup" />
+83-->[androidx.emoji2:emoji2:1.0.0] /Users/igor.f/.gradle/caches/transforms-3/e5f3204ed666cf6cbbd0d89709d75173/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+84            <meta-data
+84-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/igor.f/.gradle/caches/transforms-3/3ea8427566ab1a3f6451290689722358/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+85                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+85-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/igor.f/.gradle/caches/transforms-3/3ea8427566ab1a3f6451290689722358/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+86                android:value="androidx.startup" />
+86-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/igor.f/.gradle/caches/transforms-3/3ea8427566ab1a3f6451290689722358/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+87            <meta-data
+87-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:31:13-33:52
+88                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+88-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:32:17-85
+89                android:value="androidx.startup" />
+89-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:33:17-49
+90        </provider>
+91
+92        <receiver
+92-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:36:9-45:20
+93            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+93-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:37:13-76
+94            android:directBootAware="false"
+94-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:38:13-44
+95            android:enabled="true"
+95-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:39:13-35
+96            android:exported="true"
+96-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:40:13-36
+97            android:permission="android.permission.DUMP" >
+97-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:41:13-57
+98            <intent-filter>
+98-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:42:13-44:29
+99                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+99-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:43:17-91
+99-->[androidx.profileinstaller:profileinstaller:1.0.4] /Users/igor.f/.gradle/caches/transforms-3/2c20b9e747a43712ea1a4fe1302ce4c7/transformed/jetified-profileinstaller-1.0.4/AndroidManifest.xml:43:25-88
+100            </intent-filter>
+101        </receiver>
+102    </application>
+103
+104</manifest>

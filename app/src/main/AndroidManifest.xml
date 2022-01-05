@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackCompose">
         <activity
-            android:name=".LaztColumActivity"
+            android:name=".LazyColumActivity"
             android:exported="true"
             android:label="@string/title_activity_lazt_colum"
             android:theme="@style/Theme.JetpackCompose.NoActionBar" />
