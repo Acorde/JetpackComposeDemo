@@ -85,7 +85,7 @@ class ViewPagerActivity : ComponentActivity() {
                 mViewPagerData.value = ViewPagerData.Loading
                 CoroutineScope(Dispatchers.Default).launch {
                    // mFile.value = null
-                    //delay(500)
+                   // delay(5000)
                     val displayedFile = displayedFiles.first { it!!.mFileUrl == fileUrl }
                     mViewPagerData.value = ViewPagerData.Response(displayedFile!!)
                 }

@@ -1,9 +1,11 @@
 package com.igor.jetpackcompose.view_pager
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.pdf.PdfRenderer
 import android.os.ParcelFileDescriptor
+import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeOut
@@ -44,6 +46,9 @@ import com.google.accompanist.pager.*
 import com.igor.jetpackcompose.view_pager.download.DownloadFile
 import kotlinx.coroutines.delay
 import java.io.File
+import androidx.compose.ui.platform.LocalContext
+import com.shockwave.pdfium.PdfiumCore
+import java.util.*
 import kotlin.math.absoluteValue
 
 
@@ -57,17 +62,19 @@ fun ViewPagerSliderWithData(
 ) {
 
 
-
+    val mContext = LocalContext.current
 
     val pagerState = rememberPagerState(
         pageCount = filesUrl.size,
         initialPage = initialPage
     )
-    val currentPage by remember { mutableStateOf(initialPage) }
+    var currentPage by remember { mutableStateOf(initialPage) }
 
     LaunchedEffect(key1 = pagerState.currentPage, block = {
         selectedPage(filesUrl[pagerState.currentPage])
+        currentPage = pagerState.currentPage
     })
+
 
 
 //    LaunchedEffect(key1 = Unit, block = {
@@ -106,6 +113,7 @@ fun ViewPagerSliderWithData(
                 .weight(1f)
                 .padding(start = 0.dp, top = 40.dp, end = 0.dp, bottom = 40.dp)
         ) { page ->
+
             Card(modifier = Modifier
                 .graphicsLayer {
 
@@ -141,13 +149,13 @@ fun ViewPagerSliderWithData(
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(Color.LightGray)
+                        .background(Color.White)
                         .align(Alignment.Center)
                 ) {
 
                     if (data is ViewPagerData.Response) {
                         when (data.data.fileType) {
-                            DownloadFile.FileType.PDF -> PdfViewer(file = data.data)
+                            DownloadFile.FileType.PDF -> if(currentPage == page) PdfViewer(context = mContext,file = data.data)
                             DownloadFile.FileType.IMAGE -> ImageViewViewer(file = data.data)
                         }
                     }
@@ -171,7 +179,7 @@ fun ViewPagerSliderWithData(
 }
 
 @Composable
-fun PdfViewer(file: DisplayedFile?) {
+fun PdfViewer(context: Context, file: DisplayedFile?) {
 
     file?.let {
         val scrollState = rememberScrollState()
@@ -188,14 +196,12 @@ fun PdfViewer(file: DisplayedFile?) {
         })
 
 
-
-
         Box(modifier = Modifier.fillMaxSize()) {
 
             AndroidView(
                 modifier = Modifier
                     .fillMaxSize(),
-                factory = { PDFView(it, null) }) { pdfView ->
+                factory = { PDFView(context, null) }) { pdfView ->
 
                 pdfView.fromFile(file.mFile)
                     .enableSwipe(true)
@@ -213,9 +219,10 @@ fun PdfViewer(file: DisplayedFile?) {
                         animateState = true
                     }
                     .onError {
-                        //TODO("Not yet implemented")
+                        Log.d("IgorPdf", "PDF ERROR")
                     }
                     .load()
+
             }
 
             AnimatedVisibility(
@@ -245,6 +252,7 @@ fun PdfViewer(file: DisplayedFile?) {
 
         }
     }
+
 
 }
 

@@ -13,11 +13,12 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
-
+        ndk { abiFilters "armeabi-v7a", "x86_64" }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
         }
+
     }
 
     buildTypes {
@@ -65,12 +66,11 @@ dependencies {
     implementation "androidx.core:core-ktx:1.5.0"
 
 
-    implementation "androidx.compose.ui:ui-tooling-preview:1.1.1"
-    implementation "androidx.compose.ui:ui-util:1.1.1"
+    implementation "androidx.compose.ui:ui-util:$compose_version"
 
-    implementation("androidx.compose.ui:ui:1.0.5")
+    implementation "androidx.compose.ui:ui:$compose_version"
     // Tooling support (Previews, etc.)
-    implementation("androidx.compose.ui:ui-tooling:1.0.5")
+    implementation("androidx.compose.ui:ui-tooling:$compose_version")
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
     implementation("androidx.compose.foundation:foundation:1.0.5")
     // Material Design
@@ -86,7 +86,7 @@ dependencies {
 
 
     // UI Tests
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.5")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
 
 
     //Compose Permission
@@ -110,7 +110,12 @@ dependencies {
     //PdfViewer
     implementation 'com.github.barteksc:android-pdf-viewer:3.1.0-beta.1'
 
+
+
+
+    //implementation 'com.github.barteksc:android-pdf-viewer:1.6.0'
+
     //implementation "com.github.bumptech.glide:compose:1.0.0-alpha.1"
 
-   // implementation("io.coil-kt:coil-compose:1.3.0")
+    // implementation("io.coil-kt:coil-compose:1.3.0")
 }
