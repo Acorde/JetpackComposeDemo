@@ -7,18 +7,17 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 import com.igor.jetpackcompose.ui.theme.JetpackComposeTheme
+import com.igor.jetpackcompose.view_pager.ViewPagerActivity
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,6 +73,7 @@ class MainActivity : ComponentActivity() {
             ActivitiesEnum.TEXT_CUSTOMIZATION_ACTIVITY -> Intent(this, TextCostomizationActivity::class.java)
             ActivitiesEnum.EXPANDABLE_CARD_ACTIVITY -> Intent(this, ExpandableCardActivity::class.java)
             ActivitiesEnum.LAZY_COLUMN_ACTIVITY -> Intent(this, LazyColumActivity::class.java)
+            ActivitiesEnum.VIEW_PAGER_ACTIVITY -> Intent(this, ViewPagerActivity::class.java)
         }
 
         startActivity(intent)
@@ -88,7 +88,8 @@ class MainActivity : ComponentActivity() {
         BOX_EXAMPLE_ACTIVITY,
         TEXT_CUSTOMIZATION_ACTIVITY,
         EXPANDABLE_CARD_ACTIVITY,
-        LAZY_COLUMN_ACTIVITY
+        LAZY_COLUMN_ACTIVITY,
+        VIEW_PAGER_ACTIVITY
     }
 }
 

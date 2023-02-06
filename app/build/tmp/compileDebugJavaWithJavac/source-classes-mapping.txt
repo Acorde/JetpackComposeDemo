@@ -1,2 +1,13 @@
+com/igor/jetpackcompose/view_pager/download/KeyValue.java
+ com.igor.jetpackcompose.view_pager.download.KeyValue
 com/igor/jetpackcompose/BuildConfig.java
  com.igor.jetpackcompose.BuildConfig
+com/igor/jetpackcompose/view_pager/download/IExecutable.java
+ com.igor.jetpackcompose.view_pager.download.IExecutable
+com/igor/jetpackcompose/view_pager/download/ISearchable.java
+ com.igor.jetpackcompose.view_pager.download.ISearchable
+android/print/PdfConverter.java
+ android.print.PdfConverter
+ android.print.PdfConverter$1
+ android.print.PdfConverter$1$1
+ android.print.PdfConverter$1$2

@@ -58,7 +58,7 @@ fun RowActivityPreview() {
     JetpackComposeTheme {
         Row(
             modifier = Modifier.fillMaxSize(),
-            horizontalArrangement = Arrangement.Start,
+            horizontalArrangement = Arrangement.End,
             verticalAlignment = Alignment.CenterVertically
         ) {
             CustomItem(weight = 3f, color = MaterialTheme.colors.secondary)

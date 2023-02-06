@@ -6,10 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -34,12 +31,18 @@ class LazyColumActivity : ComponentActivity() {
                 Surface(color = MaterialTheme.colors.background) {
                     val repository = PersonRepository()
                     val allData = repository.getAllData()
-
-                    LazyColumn {
-                        items(items = allData) { person ->
+                    Column(modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentHeight()) {
+                        allData.forEach {  person ->
                             CustomItem(person = person)
                         }
                     }
+//                    LazyColumn {
+//                        items(items = allData) { person ->
+//                            CustomItem(person = person)
+//                        }
+//                    }
                 }
             }
         }
@@ -88,17 +91,23 @@ fun LazyColumnActivityStickyHeaderPreview() {
                     Text(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(Color.LightGray)
-                            .padding(12.dp),
+                            .background(Color.Blue)
+                            .padding(top = 30.dp, start = 12.dp, end = 12.dp),
                         text = "Section $section"
                     )
                 }
-                items(10) {
-                    Text(
-                        modifier = Modifier.padding(12.dp),
-                        text = "Item $it from the section $section"
-                    )
+                val repository = PersonRepository()
+                val allData = repository.getAllData()
+
+                items(items = allData) { person ->
+                    CustomItem(person = person)
                 }
+//                items(10) {
+//                    Text(
+//                        modifier = Modifier.padding(12.dp),
+//                        text = "Item $it from the section $section"
+//                    )
+//                }
             }
         }
     }

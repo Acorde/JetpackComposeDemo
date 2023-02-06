@@ -8,4 +8,9 @@
     <string name="title_activity_text_costomization">TextCostomizationActivity</string>
     <string name="title_activity_expandable_card">ExpandableCardActivity</string>
     <string name="title_activity_lazt_colum">LaztColumActivity</string>
+    <string name="title_activity_meuhedet">MeuhedetActivity</string>
+    <string name="title_activity_tabs">TabsActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_list_and_animation">ListAndAnimationActivity</string>
+    <string name="title_activity_view_pager">ViewPagerActivity</string>
 </resources>

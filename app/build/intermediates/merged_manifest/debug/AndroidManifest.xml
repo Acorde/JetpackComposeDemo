@@ -8,6 +8,13 @@
         android:minSdkVersion="26"
         android:targetSdkVersion="31" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -20,7 +27,30 @@
         android:testOnly="true"
         android:theme="@style/Theme.JetpackCompose" >
         <activity
-            android:name="com.igor.jetpackcompose.LaztColumActivity"
+            android:name="com.igor.jetpackcompose.ui.AnimationActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.igor.jetpackcompose.ui.ListAndAnimationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_list_and_animation"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
+            android:name="com.igor.jetpackcompose.TestActivity"
+            android:exported="false"
+            android:label="@string/title_activity_test"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
+            android:name="com.igor.jetpackcompose.TabsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_tabs"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
+            android:name="com.igor.jetpackcompose.ui.MeuhedetActivity"
+            android:exported="false"
+            android:label="@string/title_activity_meuhedet"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
+            android:name="com.igor.jetpackcompose.LazyColumActivity"
             android:exported="true"
             android:label="@string/title_activity_lazt_colum"
             android:theme="@style/Theme.JetpackCompose.NoActionBar" />
@@ -58,6 +88,11 @@
             android:name="com.igor.jetpackcompose.OneMessageActivity"
             android:exported="false"
             android:label="@string/title_activity_one_message"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
+            android:name="com.igor.jetpackcompose.view_pager.ViewPagerActivity"
+            android:exported="false"
+            android:label="@string/title_activity_view_pager"
             android:theme="@style/Theme.JetpackCompose.NoActionBar" />
         <activity
             android:name="com.igor.jetpackcompose.MainActivity"

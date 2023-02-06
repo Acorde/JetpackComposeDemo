@@ -57,12 +57,16 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
     implementation 'androidx.activity:activity-compose:1.4.0'
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.constraintlayout:constraintlayout:1.0.1'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     implementation "androidx.core:core-ktx:1.5.0"
 
+
+    implementation "androidx.compose.ui:ui-tooling-preview:1.1.1"
+    implementation "androidx.compose.ui:ui-util:1.1.1"
 
     implementation("androidx.compose.ui:ui:1.0.5")
     // Tooling support (Previews, etc.)
@@ -78,6 +82,35 @@ dependencies {
     implementation("androidx.compose.runtime:runtime-livedata:1.0.5")
     implementation("androidx.compose.runtime:runtime-rxjava2:1.0.5")
 
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
+
+
     // UI Tests
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.5")
+
+
+    //Compose Permission
+    implementation "com.google.accompanist:accompanist-permissions:0.21.5-rc"
+
+    //YouTube
+    implementation "com.pierfrancescosoffritti.androidyoutubeplayer:core:8.0.1"
+
+    //Pager dependency
+    implementation "com.google.accompanist:accompanist-pager:0.13.0"
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.13.0"
+
+    //Gson
+    implementation "com.google.code.gson:gson:2.8.1"
+
+    implementation "com.squareup.okhttp3:okhttp:3.9.0"
+
+    //Glide for compose
+    implementation "com.github.skydoves:landscapist-glide:1.5.2"
+
+    //PdfViewer
+    implementation 'com.github.barteksc:android-pdf-viewer:3.1.0-beta.1'
+
+    //implementation "com.github.bumptech.glide:compose:1.0.0-alpha.1"
+
+   // implementation("io.coil-kt:coil-compose:1.3.0")
 }

@@ -1,11 +1,19 @@
 [
     {
+        "merged": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/merged_res/debug/drawable_landing_popup.jpg.flat",
+        "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/drawable/landing_popup.jpg"
+    },
+    {
         "merged": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
         "merged": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/merged_res/debug/mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/merged_res/debug/drawable_landing_popup_kosher.jpeg.flat",
+        "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/drawable/landing_popup_kosher.jpeg"
     },
     {
         "merged": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher.webp.flat",
@@ -36,12 +44,32 @@
         "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
+        "merged": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/merged_res/debug/layout_activity_animation.xml.flat",
+        "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/layout/activity_animation.xml"
+    },
+    {
+        "merged": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/merged_res/debug/drawable_ic_medical_stock_upper_banner_backround.xml.flat",
+        "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/drawable/ic_medical_stock_upper_banner_backround.xml"
+    },
+    {
+        "merged": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/merged_res/debug/drawable_hybrid_popup.jpg.flat",
+        "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/drawable/hybrid_popup.jpg"
+    },
+    {
         "merged": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
+        "merged": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/merged_res/debug/drawable_ic_medical_stock_upper_banner_pillows.xml.flat",
+        "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/drawable/ic_medical_stock_upper_banner_pillows.xml"
+    },
+    {
         "merged": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/merged_res/debug/drawable_adb_video.png.flat",
+        "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/drawable/adb_video.png"
     },
     {
         "merged": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/merged_res/debug/mipmap-xhdpi_ic_launcher.webp.flat",
