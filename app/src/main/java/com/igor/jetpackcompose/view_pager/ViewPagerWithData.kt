@@ -1,24 +1,31 @@
 package com.igor.jetpackcompose.view_pager
 
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.util.Log
+import android.graphics.pdf.PdfRenderer
+import android.os.ParcelFileDescriptor
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.BitmapPainter
@@ -31,9 +38,12 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.lerp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.github.barteksc.pdfviewer.PDFView
+import com.github.barteksc.pdfviewer.listener.OnErrorListener
+import com.github.barteksc.pdfviewer.listener.OnPageChangeListener
 import com.google.accompanist.pager.*
 import com.igor.jetpackcompose.view_pager.download.DownloadFile
 import kotlinx.coroutines.delay
+import java.io.File
 import kotlin.math.absoluteValue
 
 
@@ -47,21 +57,16 @@ fun ViewPagerSliderWithData(
 ) {
 
 
+
+
     val pagerState = rememberPagerState(
         pageCount = filesUrl.size,
         initialPage = initialPage
     )
     val currentPage by remember { mutableStateOf(initialPage) }
 
-
     LaunchedEffect(key1 = pagerState.currentPage, block = {
         selectedPage(filesUrl[pagerState.currentPage])
-    })
-
-    LaunchedEffect(key1 = pagerState.isScrollInProgress, block = {
-        if(pagerState.isScrollInProgress){
-           Log.d("IgorScrollTest", "Scroll")
-        }
     })
 
 
@@ -141,9 +146,7 @@ fun ViewPagerSliderWithData(
 
                     if (file?.fileType != null) {
                         when (file.fileType) {
-                            DownloadFile.FileType.PDF -> PdfViewer(
-                                file = file
-                            )
+                            DownloadFile.FileType.PDF -> PdfViewer(file = file)
                             DownloadFile.FileType.IMAGE -> ImageViewViewer(file = file)
                         }
                     }

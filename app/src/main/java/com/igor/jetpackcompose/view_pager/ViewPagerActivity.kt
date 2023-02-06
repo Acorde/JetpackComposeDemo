@@ -44,7 +44,7 @@ class ViewPagerActivity : ComponentActivity() {
     val listOfPictures = listOf(
         "https://mobiq.meuhedet.co.il/umbraco/api/OnlineCommunicationApi/ReferenceFile?formSourceSystem=2&documentKey=7241792",
         "https://mobiq.meuhedet.co.il/umbraco/api/OnlineCommunicationApi/ReferenceFile?formSourceSystem=2&documentKey=7241798",
-        "https://mobiq.meuhedet.co.il/umbraco/api/OnlineCommunicationApi/ReferenceFile?formSourceSystem=2&documentKey=7241743"
+        "https://mobiq.meuhedet.co.il/umbraco/api/OnlineCommunicationApi/ReferenceFile?formSourceSystem=2&documentKey=7241743",
     )
 
 //    val listOfPictures = listOf(
