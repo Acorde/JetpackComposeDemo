@@ -31,6 +31,7 @@ class ViewPagerActivity : ComponentActivity() {
     private var mLocalFilePath : String? = null
     private val displayedFiles = mutableStateListOf<DisplayedFile?>()
     private val mFile = mutableStateOf<DisplayedFile?>(null)
+    private val mViewPagerData = mutableStateOf<ViewPagerData?>(null)
 
 
 //    val listOfPictures = listOf(
@@ -59,10 +60,11 @@ class ViewPagerActivity : ComponentActivity() {
         mLocalFilePath = filesDir.absolutePath
         setContent {
             JetpackComposeTheme {
-                val mCurrentFile = mFile
+               // val mCurrentFile = mFile
+                val mCurrentData = mViewPagerData
 
                 Surface(color = MaterialTheme.colors.background) {
-                    ViewPagerSliderWithData(initialPage = 0, file = mCurrentFile.value, filesUrl = listOfPictures) {
+                    ViewPagerSliderWithData(initialPage = 0, data = mCurrentData.value, filesUrl = listOfPictures) {
                         selectedFileChanged(it)
                     }
                 }
@@ -76,10 +78,16 @@ class ViewPagerActivity : ComponentActivity() {
             loadFile(fileUrl)
         } else {
             if (displayedFiles.any { it!!.mFileUrl == fileUrl }) {
+                if(mViewPagerData.value is ViewPagerData.Response){
+                    mViewPagerData.value = null
+
+                }
+                mViewPagerData.value = ViewPagerData.Loading
                 CoroutineScope(Dispatchers.Default).launch {
                    // mFile.value = null
                     //delay(500)
-                    mFile.value = displayedFiles.first { it!!.mFileUrl == fileUrl }
+                    val displayedFile = displayedFiles.first { it!!.mFileUrl == fileUrl }
+                    mViewPagerData.value = ViewPagerData.Response(displayedFile!!)
                 }
 
             } else {
@@ -89,13 +97,17 @@ class ViewPagerActivity : ComponentActivity() {
     }
 
     private fun loadFile(fileUrl: String) {
+        if(mViewPagerData.value is ViewPagerData.Response){
+            mViewPagerData.value = null
+        }
+        mViewPagerData.value = ViewPagerData.Loading
         val aFileName = Calendar.getInstance().timeInMillis
         DownloadFile({
             val path = mLocalFilePath + "/$aFileName${it.getEndPath()}"
             val aFile = File(path)
-            mFile.value = DisplayedFile(fileType = it, mFile = aFile, fileUrl)
-            displayedFiles.add(mFile.value)
-
+            val displayedFile = DisplayedFile(fileType = it, mFile = aFile, fileUrl)
+            mViewPagerData.value = ViewPagerData.Response(displayedFile)
+            displayedFiles.add((mViewPagerData.value as ViewPagerData.Response).data)
         }, fileUrl, mLocalFilePath!!, this, fileName = "/$aFileName").doInBackground()
     }
 
@@ -132,5 +144,9 @@ class ViewPagerActivity : ComponentActivity() {
     }
 }
 
-
+sealed class ViewPagerData{
+    data class Response(val data : DisplayedFile) : ViewPagerData()
+    object Loading : ViewPagerData()
+    object Error : ViewPagerData()
+}
 data class DisplayedFile(val fileType: DownloadFile.FileType, val mFile: File, val mFileUrl: String)

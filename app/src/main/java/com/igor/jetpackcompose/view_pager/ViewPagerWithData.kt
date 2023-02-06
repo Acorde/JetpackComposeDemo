@@ -51,7 +51,7 @@ import kotlin.math.absoluteValue
 @Composable
 fun ViewPagerSliderWithData(
     initialPage: Int,
-    file: DisplayedFile?,
+    data: ViewPagerData?,
     filesUrl: List<String>,
     selectedPage: (String) -> Unit
 ) {
@@ -101,6 +101,7 @@ fun ViewPagerSliderWithData(
         Spacer(modifier = Modifier.height(30.dp))
         HorizontalPager(
             state = pagerState,
+            dragEnabled = data is ViewPagerData.Response,
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 0.dp, top = 40.dp, end = 0.dp, bottom = 40.dp)
@@ -144,10 +145,10 @@ fun ViewPagerSliderWithData(
                         .align(Alignment.Center)
                 ) {
 
-                    if (file?.fileType != null) {
-                        when (file.fileType) {
-                            DownloadFile.FileType.PDF -> PdfViewer(file = file)
-                            DownloadFile.FileType.IMAGE -> ImageViewViewer(file = file)
+                    if (data is ViewPagerData.Response) {
+                        when (data.data.fileType) {
+                            DownloadFile.FileType.PDF -> PdfViewer(file = data.data)
+                            DownloadFile.FileType.IMAGE -> ImageViewViewer(file = data.data)
                         }
                     }
 
