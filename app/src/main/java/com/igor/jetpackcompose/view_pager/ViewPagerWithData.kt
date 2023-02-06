@@ -1,33 +1,25 @@
 package com.igor.jetpackcompose.view_pager
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.pdf.PdfRenderer
-import android.os.ParcelFileDescriptor
 import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.BitmapPainter
@@ -40,15 +32,10 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.lerp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.github.barteksc.pdfviewer.PDFView
-import com.github.barteksc.pdfviewer.listener.OnErrorListener
-import com.github.barteksc.pdfviewer.listener.OnPageChangeListener
 import com.google.accompanist.pager.*
 import com.igor.jetpackcompose.view_pager.download.DownloadFile
 import kotlinx.coroutines.delay
-import java.io.File
 import androidx.compose.ui.platform.LocalContext
-import com.shockwave.pdfium.PdfiumCore
-import java.util.*
 import kotlin.math.absoluteValue
 
 
@@ -74,7 +61,6 @@ fun ViewPagerSliderWithData(
         selectedPage(filesUrl[pagerState.currentPage])
         currentPage = pagerState.currentPage
     })
-
 
 
 //    LaunchedEffect(key1 = Unit, block = {
@@ -155,7 +141,10 @@ fun ViewPagerSliderWithData(
 
                     if (data is ViewPagerData.Response) {
                         when (data.data.fileType) {
-                            DownloadFile.FileType.PDF -> if(currentPage == page) PdfViewer(context = mContext,file = data.data)
+                            DownloadFile.FileType.PDF -> if (currentPage == page) PdfViewer(
+                                context = mContext,
+                                file = data.data
+                            )
                             DownloadFile.FileType.IMAGE -> ImageViewViewer(file = data.data)
                         }
                     }
