@@ -61,18 +61,7 @@ fun ViewPagerSliderWithData(
         selectedPage(filesUrl[pagerState.currentPage])
         currentPage = pagerState.currentPage
     })
-
-
-//    LaunchedEffect(key1 = Unit, block = {
-//        while (true) {
-//            yield()
-//            delay(2000)
-//            pagerState.animateScrollToPage(
-//                page = (pagerState.currentPage + 1) % (pagerState.pageCount),
-//                animationSpec = tween(600)
-//            )
-//        }
-//    })
+    
 
     Column(modifier = Modifier.fillMaxSize()) {
         Column(
@@ -187,32 +176,32 @@ fun PdfViewer(context: Context, file: DisplayedFile?) {
 
         Box(modifier = Modifier.fillMaxSize()) {
 
-            AndroidView(
-                modifier = Modifier
-                    .fillMaxSize(),
-                factory = { PDFView(context, null) }) { pdfView ->
 
-                pdfView.fromFile(file.mFile)
-                    .enableSwipe(true)
-                    .swipeHorizontal(false)
-                    .enableDoubletap(true)
-                    .defaultPage(0)
-                    .enableAnnotationRendering(true) // render annotations (such as comments, colors or forms)
-                    .password(null)
-                    .scrollHandle(null)
-                    .enableAntialiasing(true)
-                    .spacing(0)
-                    .onPageChange { page, pageCount ->
-                        mPage = page.plus(1).toString()
-                        mPageCount = pageCount.toString()
-                        animateState = true
-                    }
-                    .onError {
-                        Log.d("IgorPdf", "PDF ERROR")
-                    }
-                    .load()
-
-            }
+            AndroidView(modifier = Modifier
+                .fillMaxSize(), factory = {
+                PDFView(context, null).let { pdfView ->
+                    pdfView.fromFile(file.mFile)
+                        .enableSwipe(true)
+                        .swipeHorizontal(false)
+                        .enableDoubletap(true)
+                        .defaultPage(0)
+                        .enableAnnotationRendering(true) // render annotations (such as comments, colors or forms)
+                        .password(null)
+                        .scrollHandle(null)
+                        .enableAntialiasing(true)
+                        .spacing(0)
+                        .onPageChange { page, pageCount ->
+                            mPage = page.plus(1).toString()
+                            mPageCount = pageCount.toString()
+                            animateState = true
+                        }
+                        .onError {
+                            Log.d("IgorPdf", "PDF ERROR")
+                        }
+                        .load()
+                    pdfView
+                }
+            })
 
             AnimatedVisibility(
                 visible = animateState,

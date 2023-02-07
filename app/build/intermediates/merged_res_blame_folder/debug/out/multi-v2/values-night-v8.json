@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "/Users/igor.f/.gradle/caches/transforms-3/e55bf8fe1a56cc081f363c8bc40124d3/transformed/appcompat-1.4.0/res/values-night-v8/values-night-v8.xml",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/values-night/themes.xml",
+                    "source": "/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/res/values-night/themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
                     "source": "/Users/igor.f/.gradle/caches/transforms-3/f2549c9573ce9dbc59394446c4ad208f/transformed/material-1.4.0/res/values/values.xml",
@@ -76,23 +76,6 @@
                     }
                 },
                 {
-                    "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/values/colors.xml",
-                    "from": {
-                        "startLines": "7,2,3,4,5,6,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "286,55,102,149,196,241,328",
-                        "endColumns": "41,46,46,46,44,44,41",
-                        "endOffsets": "323,97,144,191,236,281,365"
-                    },
-                    "to": {
-                        "startLines": "417,510,511,512,524,525,529",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "20250,26519,26566,26613,27395,27440,27655",
-                        "endColumns": "41,46,46,46,44,44,41",
-                        "endOffsets": "20287,26561,26608,26655,27435,27480,27692"
-                    }
-                },
-                {
                     "source": "/Users/igor.f/.gradle/caches/transforms-3/7e821bc4a4cb5b97a673f5963473f2a6/transformed/lifecycle-runtime-2.4.0/res/values/values.xml",
                     "from": {
                         "startLines": "2",
@@ -146,20 +129,20 @@
                     }
                 },
                 {
-                    "source": "/Users/igor.f/.gradle/caches/transforms-3/5db15fd47efca200fa77247d663c136d/transformed/jetified-android-pdf-viewer-2.8.2/res/values/values.xml",
+                    "source": "/Users/igor.f/.gradle/caches/transforms-3/de773f807d5a2c6b58f6ec43b4ec2670/transformed/jetified-core-8.0.1/res/values/values.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "288",
-                        "endOffsets": "339"
+                        "startLines": "2,3,4,5,6,7,8,9,10,12,13,14,15,16",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,103,153,198,242,280,315,374,423,534,600,638,681,753",
+                        "endColumns": "47,49,44,43,37,34,58,48,50,65,37,42,71,51",
+                        "endOffsets": "98,148,193,237,275,310,369,418,469,595,633,676,748,800"
                     },
                     "to": {
-                        "startLines": "7563",
-                        "startColumns": "4",
-                        "startOffsets": "489203",
-                        "endColumns": "288",
-                        "endOffsets": "489487"
+                        "startLines": "469,476,489,490,513,530,723,724,725,1150,1156,1214,1217,1223",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "23885,24334,25056,25101,26660,27697,40689,40748,40797,68192,68748,78192,78305,79179",
+                        "endColumns": "47,49,44,43,37,34,58,48,50,65,37,42,71,51",
+                        "endOffsets": "23928,24379,25096,25140,26693,27727,40743,40792,40843,68253,68781,78230,78372,79226"
                     }
                 },
                 {
@@ -182,39 +165,20 @@
                     }
                 },
                 {
-                    "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/values/themes.xml",
+                    "source": "/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/res/values/colors.xml",
                     "from": {
-                        "startLines": "2,21,16,23",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "100,992,829,1096",
-                        "endLines": "14,21,19,23",
-                        "endColumns": "12,102,12,92",
-                        "endOffsets": "823,1090,986,1184"
+                        "startLines": "7,2,3,4,5,6,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "286,55,102,149,196,241,328",
+                        "endColumns": "41,46,46,46,44,44,41",
+                        "endOffsets": "323,97,144,191,236,281,365"
                     },
                     "to": {
-                        "startLines": "3906,3919,3920,3924",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "257432,258158,258260,258422",
-                        "endLines": "3918,3919,3923,3924",
-                        "endColumns": "12,101,12,91",
-                        "endOffsets": "258153,258255,258417,258509"
-                    }
-                },
-                {
-                    "source": "/Users/igor.f/.gradle/caches/transforms-3/49065dc89dbbc5fd3b17f399b5169adc/transformed/jetified-core-8.0.1/res/values/values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,12,13,14,15,16",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,103,153,198,242,280,315,374,423,534,600,638,681,753",
-                        "endColumns": "47,49,44,43,37,34,58,48,50,65,37,42,71,51",
-                        "endOffsets": "98,148,193,237,275,310,369,418,469,595,633,676,748,800"
-                    },
-                    "to": {
-                        "startLines": "469,476,489,490,513,530,723,724,725,1150,1156,1214,1217,1223",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "23885,24334,25056,25101,26660,27697,40689,40748,40797,68192,68748,78192,78305,79179",
-                        "endColumns": "47,49,44,43,37,34,58,48,50,65,37,42,71,51",
-                        "endOffsets": "23928,24379,25096,25140,26693,27727,40743,40792,40843,68253,68781,78230,78372,79226"
+                        "startLines": "417,510,511,512,524,525,529",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "20250,26519,26566,26613,27395,27440,27655",
+                        "endColumns": "41,46,46,46,44,44,41",
+                        "endOffsets": "20287,26561,26608,26655,27435,27480,27692"
                     }
                 },
                 {
@@ -232,6 +196,25 @@
                         "startOffsets": "66301",
                         "endColumns": "82",
                         "endOffsets": "66379"
+                    }
+                },
+                {
+                    "source": "/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/res/values/themes.xml",
+                    "from": {
+                        "startLines": "2,21,16,23",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "100,992,829,1096",
+                        "endLines": "14,21,19,23",
+                        "endColumns": "12,102,12,92",
+                        "endOffsets": "823,1090,986,1184"
+                    },
+                    "to": {
+                        "startLines": "3906,3919,3920,3924",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "257432,258158,258260,258422",
+                        "endLines": "3918,3919,3923,3924",
+                        "endColumns": "12,101,12,91",
+                        "endOffsets": "258153,258255,258417,258509"
                     }
                 },
                 {
@@ -345,7 +328,7 @@
                     }
                 },
                 {
-                    "source": "/Users/igor.f/Android/JetpackCompose/app/src/main/res/values/strings.xml",
+                    "source": "/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/res/values/strings.xml",
                     "from": {
                         "startLines": "1,6,4,8,9,13,3,10,2,5,11,12,7,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -378,6 +361,23 @@
                         "endLines": "8410",
                         "endColumns": "24",
                         "endOffsets": "537110"
+                    }
+                },
+                {
+                    "source": "/Users/igor.f/.gradle/caches/transforms-3/8a74ad13c2ed9eb79aa4f459bfaa7a49/transformed/jetified-android-pdf-viewer-3.1.0-beta.1/res/values/values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "288",
+                        "endOffsets": "339"
+                    },
+                    "to": {
+                        "startLines": "7563",
+                        "startColumns": "4",
+                        "startOffsets": "489203",
+                        "endColumns": "288",
+                        "endOffsets": "489487"
                     }
                 },
                 {

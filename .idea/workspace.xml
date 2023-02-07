@@ -169,6 +169,7 @@
       <option name="PM_INSTALL_OPTIONS" value="" />
       <option name="ALL_USERS" value="false" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
@@ -206,6 +207,7 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
         <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
         <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+        <option name="PROFILING_MODE" value="NOT_SET" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -224,6 +226,7 @@
       <option name="PM_INSTALL_OPTIONS" value="" />
       <option name="ALL_USERS" value="false" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="--es composable com.igor.jetpackcompose.LazyColumActivityKt.LazyColumnActivityStickyHeaderPreview" />
       <option name="MODE" value="specific_activity" />
@@ -261,6 +264,7 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
         <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
         <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+        <option name="PROFILING_MODE" value="NOT_SET" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="androidx.compose.ui.tooling.PreviewActivity" />
@@ -281,6 +285,7 @@
       <option name="PM_INSTALL_OPTIONS" value="" />
       <option name="ALL_USERS" value="false" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="--es composable com.igor.jetpackcompose.DrugbleYoutubePlayerKt.PreviewDragableView" />
       <option name="MODE" value="specific_activity" />
@@ -318,6 +323,7 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
         <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
         <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+        <option name="PROFILING_MODE" value="NOT_SET" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="androidx.compose.ui.tooling.PreviewActivity" />
@@ -338,6 +344,7 @@
       <option name="PM_INSTALL_OPTIONS" value="" />
       <option name="ALL_USERS" value="false" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="--es composable com.igor.jetpackcompose.PermissionsKt.PreviewRequestPermissions" />
       <option name="MODE" value="specific_activity" />
@@ -375,6 +382,7 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
         <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
         <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+        <option name="PROFILING_MODE" value="NOT_SET" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="androidx.compose.ui.tooling.PreviewActivity" />
@@ -395,6 +403,7 @@
       <option name="PM_INSTALL_OPTIONS" value="" />
       <option name="ALL_USERS" value="false" />
       <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="--es composable com.igor.jetpackcompose.view_pager.ViewPagerKt.PreviewViewPager" />
       <option name="MODE" value="specific_activity" />
@@ -432,6 +441,7 @@
         <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
         <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
         <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+        <option name="PROFILING_MODE" value="NOT_SET" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="androidx.compose.ui.tooling.PreviewActivity" />
