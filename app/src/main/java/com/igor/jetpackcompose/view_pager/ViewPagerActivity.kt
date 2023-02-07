@@ -63,7 +63,7 @@ class ViewPagerActivity : ComponentActivity() {
                // val mCurrentFile = mFile
                 val mCurrentData = mViewPagerData
 
-                Surface(color = MaterialTheme.colors.background) {
+                Surface(color = MaterialTheme.colors.surface) {
                     ViewPagerSliderWithData(initialPage = 0, data = mCurrentData.value, filesUrl = listOfPictures) {
                         selectedFileChanged(it)
                     }

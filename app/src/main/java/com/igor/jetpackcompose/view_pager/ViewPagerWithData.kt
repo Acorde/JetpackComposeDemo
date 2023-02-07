@@ -61,7 +61,7 @@ fun ViewPagerSliderWithData(
         selectedPage(filesUrl[pagerState.currentPage])
         currentPage = pagerState.currentPage
     })
-    
+
 
     Column(modifier = Modifier.fillMaxSize()) {
         Column(
@@ -118,6 +118,7 @@ fun ViewPagerSliderWithData(
                 }
                 .fillMaxWidth()
                 .padding(start = 25.dp, top = 0.dp, end = 25.dp, bottom = 0.dp),
+                elevation = 7.dp,
                 shape = RoundedCornerShape(20.dp)
             ) {
 
@@ -128,9 +129,9 @@ fun ViewPagerSliderWithData(
                         .align(Alignment.Center)
                 ) {
 
-                    if (data is ViewPagerData.Response) {
+                    if (data is ViewPagerData.Response && currentPage == page) {
                         when (data.data.fileType) {
-                            DownloadFile.FileType.PDF -> if (currentPage == page) PdfViewer(
+                            DownloadFile.FileType.PDF -> PdfViewer(
                                 context = mContext,
                                 file = data.data
                             )
