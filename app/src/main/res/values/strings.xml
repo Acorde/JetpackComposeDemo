@@ -14,4 +14,5 @@
     <string name="title_activity_list_and_animation">ListAndAnimationActivity</string>
     <string name="title_activity_view_pager">ViewPagerActivity</string>
     <string name="title_activity_download_manager">DownloadManagerActivity</string>
+    <string name="title_activity_flow_example">FlowExample</string>
 </resources>

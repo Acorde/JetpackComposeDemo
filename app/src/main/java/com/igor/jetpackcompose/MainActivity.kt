@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.igor.flow.FlowActivity
 import com.igor.jetpackcompose.download_manager.DownloadActivity
 
 import com.igor.jetpackcompose.ui.theme.JetpackComposeTheme
@@ -76,6 +77,7 @@ class MainActivity : ComponentActivity() {
             ActivitiesEnum.LAZY_COLUMN_ACTIVITY -> Intent(this, LazyColumActivity::class.java)
             ActivitiesEnum.VIEW_PAGER_ACTIVITY -> Intent(this, ViewPagerActivity::class.java)
             ActivitiesEnum.DOWNLOAD_MANAGER -> Intent(this, DownloadActivity::class.java)
+            ActivitiesEnum.FLOW_EXAMPLE -> Intent(this, FlowActivity::class.java)
         }
 
         startActivity(intent)
@@ -92,7 +94,8 @@ class MainActivity : ComponentActivity() {
         EXPANDABLE_CARD_ACTIVITY,
         LAZY_COLUMN_ACTIVITY,
         VIEW_PAGER_ACTIVITY,
-        DOWNLOAD_MANAGER
+        DOWNLOAD_MANAGER,
+        FLOW_EXAMPLE
     }
 }
 
