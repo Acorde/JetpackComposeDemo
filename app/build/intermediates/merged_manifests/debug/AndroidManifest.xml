@@ -96,6 +96,16 @@
             android:label="@string/title_activity_view_pager"
             android:theme="@style/Theme.JetpackCompose.NoActionBar" />
         <activity
+            android:name="com.igor.jetpackcompose.download_manager.DownloadActivity"
+            android:exported="false"
+            android:label="@string/title_activity_view_pager"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
+            android:name="com.igor.flow.FlowActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
+        <activity
             android:name="com.igor.jetpackcompose.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
@@ -106,6 +116,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name="com.igor.jetpackcompose.download_manager.DownloadCompletedReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name="androidx.compose.ui.tooling.PreviewActivity"
             android:exported="true" />

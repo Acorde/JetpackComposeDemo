@@ -111,6 +111,9 @@ dependencies {
     implementation 'com.github.barteksc:android-pdf-viewer:3.1.0-beta.1'
 
 
+    //ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
+
 
 
     //implementation 'com.github.barteksc:android-pdf-viewer:1.6.0'
