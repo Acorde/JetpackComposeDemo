@@ -3,6 +3,7 @@ package com.igor.jetpackcompose.achedualCalendar
 import android.annotation.SuppressLint
 import android.content.Context
 import android.icu.util.HebrewCalendar
+import android.provider.CalendarContract.Calendars
 import android.util.Log
 import android.util.SparseArray
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -34,6 +35,7 @@ import com.igor.jetpackcompose.achedualCalendar.ScheduleCalendarItemState.*
 import net.sourceforge.zmanim.hebrewcalendar.HebrewDateFormatter
 import net.sourceforge.zmanim.hebrewcalendar.JewishCalendar
 import net.sourceforge.zmanim.hebrewcalendar.JewishDate
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -52,6 +54,18 @@ fun ScheduleCalendarWrapper() {
 
     val mSelectedDate = remember { mutableStateOf(mCalendar.value.get(Calendar.DAY_OF_MONTH)) }
 
+    var monthDaysNumber by remember { mutableStateOf(mCalendar.value.getActualMaximum(Calendar.DAY_OF_MONTH)) }
+
+
+    var mFirstDatOfMonth by remember {
+        mutableStateOf(
+            getFirstDateOfMonth(
+                month = mSelectedMonth.value,
+                mCalendar.value.get(Calendar.YEAR)
+            )
+        )
+    }
+
     LaunchedEffect(key1 = mSelectedMonth.value, block = {
 
         when (mSelectedMonth.value) {
@@ -67,6 +81,12 @@ fun ScheduleCalendarWrapper() {
             }
 
         }
+
+        mCalendar.value.set(Calendar.MONTH, mSelectedMonth.value)
+        monthDaysNumber = mCalendar.value.getActualMaximum(Calendar.DAY_OF_MONTH)
+        mFirstDatOfMonth =
+            getFirstDateOfMonth(month = mSelectedMonth.value, mCalendar.value.get(Calendar.YEAR))
+
     })
 
     MaterialTheme {
@@ -83,6 +103,8 @@ fun ScheduleCalendarWrapper() {
                     hebrewFormatter = mHebrewCalendarDateFormatter,
                     selectedDate = mSelectedDate,
                     mCalendar = mCalendar,
+                    monthDaysNumber = monthDaysNumber,
+                    mFirstDatOfMonth = mFirstDatOfMonth
                 )
             }
         }
@@ -98,16 +120,16 @@ fun ScheduleCalendar(
     selectedDate: MutableState<Int>,
     mCalendar: MutableState<Calendar>,
     hebrewCalendar: JewishCalendar,
-    hebrewFormatter: HebrewDateFormatter
+    hebrewFormatter: HebrewDateFormatter,
+    monthDaysNumber: Int,
+    mFirstDatOfMonth: Int
 ) {
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
 
-        var monthDaysNumber = mCalendar.value.getActualMaximum(Calendar.DAY_OF_MONTH)
+//        val mFirstDatOfMonth =
+//            getFirstDateOfMonth(month = month.value, mCalendar.value.get(Calendar.YEAR))
 
-        val mFirstDatOfMonth =
-            getFirstDateOfMonth(month = month.value, mCalendar.value.get(Calendar.YEAR))
-
-        monthDaysNumber += (mFirstDatOfMonth - 1)
+        val mMonthDaysNumber = monthDaysNumber + (mFirstDatOfMonth - 1)
 
 
         LazyVerticalGrid(
@@ -128,7 +150,7 @@ fun ScheduleCalendar(
 
             }
 
-            items(monthDaysNumber) { day ->
+            items(mMonthDaysNumber) { day ->
 
                 if (day < mFirstDatOfMonth - 1) {
                     Box(
@@ -221,22 +243,69 @@ fun ScheduleCalendarItem(
     onItemClick: (Int) -> Unit
 ) {
 
+    //    val jd: JewishDate = JewishCalendar() // current date 23 Nissan, 5773
+    //    val hdf = HebrewDateFormatter()
+    //    hdf.isHebrewFormat = true
+    //    jd.setDate(Calendar.getInstance().time) // set the date to 21 Shevat, 5729
+    //
+    //    val hDate = getHebrewDay(
+    //        hdf.formatHebrewNumber(jd.jewishDayOfMonth),
+    //        hdf.formatMonth(jd)
+    //    )
+
+    //Log.d("IgorDateTest", "day is $day \n calendar is: ${SimpleDateFormat("dd/MM/yyyy").format(calendar.time)}")
+
+
     val mItemState =
         remember(mSelectedDate) { mutableStateOf(if (mSelectedDate == day) SELECTED else ENABLE) }
 
-    hebrewCalendar.setDate(
-        Calendar.getInstance().apply { this.time = calendar.time }
-            .apply { this.set(Calendar.DAY_OF_MONTH, day) })
 
-    val hebrewDateLetter by remember {
-        mutableStateOf(
-            getHebrewDay(
-                hebrewFormatter.formatHebrewNumber(
-                    hebrewCalendar.jewishDayOfMonth
-                ), hebrewFormatter.formatMonth(hebrewCalendar)
-            )
-        )
+
+    Log.d(
+        "IgorDateTest",
+        "day is $day \n " +
+                "hebrew calendar is: ${SimpleDateFormat("dd/MM/yyyy").format(hebrewCalendar.time)} \n" +
+                "calendar is: ${SimpleDateFormat("dd/MM/yyyy").format(calendar.time)}"
+    )
+
+
+//    val jewishDate = remember {
+//        mutableStateOf(
+//            hebrewCalendar.setDate(
+//                Calendar.getInstance().apply { this.time = calendar.time }
+//                    .apply { this.set(Calendar.DAY_OF_MONTH, day) })
+//        )
+//    }
+
+
+    var hebrewDateLetter by remember {
+        mutableStateOf("")
     }
+
+    LaunchedEffect(key1 = day, block = {
+
+        hebrewCalendar.setDate(
+            Calendar.getInstance().apply {
+                this.time = calendar.apply {
+                    this.set(Calendar.SECOND, 0)
+                    this.set(Calendar.MINUTE, 0)
+                    this.set(Calendar.HOUR, 0)
+                }.time
+                this.set(Calendar.DAY_OF_MONTH, day)
+            }
+        )
+
+        hebrewDateLetter = getHebrewDay(
+            hebrewFormatter.formatHebrewNumber(
+                hebrewCalendar.jewishDayOfMonth
+            ), hebrewFormatter.formatMonth(hebrewCalendar)
+        ).toString()
+
+    })
+    Log.d(
+        "hebrewDateLetter",
+        " ${SimpleDateFormat("dd/MM/yyyy").format(hebrewCalendar.time)} -  $hebrewDateLetter"
+    )
 
     Card(modifier = Modifier
         .wrapContentSize(),
@@ -260,11 +329,19 @@ fun ScheduleCalendarItem(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(text = day.toString())
-                Text(text = hebrewDateLetter.toString(), fontSize = 13.sp)
+                Text(text = hebrewDateLetter, fontSize = 13.sp)
             }
         }
     }
 
+}
+
+
+fun getHebrewDate(date: Date) {
+
+    val cal = HebrewCalendar()
+    //cal.getDisplayName()
+    cal.getDateTimeFormat(1, 1, Locale("he"))
 }
 
 @Preview(showBackground = true)
@@ -308,17 +385,83 @@ fun HebrewDateLetters.getHebrewLetter(): String {
 //    println(daysOfMonth.lengthOfMonth())
 //}
 
+@SuppressLint("SuspiciousIndentation")
+fun main() {
+//    CoroutineScope(Dispatchers.IO).launch {
+//        val cal = HebrewCalendar.getInstance()
+//        launch(Dispatchers.Main) {
+//            val sd = SimpleDateFormat("EEEE")
+//            // cal.getDisplayName()
+//            val hDate = sd.format(cal.time)
+//            // val dd = cal.getDateTimeFormat(1, 1, ULocale.Category.FORMAT)
+//            println("hDate= $hDate")
+//            println(".......******.......")
+//        }
+//
+//    }
+
+
+    val jd: JewishDate = JewishCalendar() // current date 23 Nissan, 5773
+    val hdf = HebrewDateFormatter()
+    hdf.isHebrewFormat = true
+    jd.setDate(Calendar.getInstance().time) // set the date to 21 Shevat, 5729
+
+    val hDate = getHebrewDay(
+        hdf.formatHebrewNumber(jd.jewishDayOfMonth),
+        hdf.formatMonth(jd)
+    )
+
+    val mCalendar = Calendar.getInstance()
+    val monthDaysNumber = mCalendar.getActualMaximum(Calendar.DAY_OF_WEEK_IN_MONTH)
+    val currentMonth = mCalendar.get(Calendar.MONTH)
+    val dayOfWeek = mCalendar.get(Calendar.DAY_OF_WEEK)
+    val dayOfMonth = mCalendar.get(Calendar.DAY_OF_MONTH)
+    println("hDate is : $hDate")
+    println("currentMonth is : $currentMonth")
+    println("monthDaysNumber is : $monthDaysNumber")
+    println("dayOfWeek is : $dayOfWeek")
+    println("dayOfMonth is : $dayOfMonth")
+    println("firstDayOfWeek is : ${getFirstDateOfMonth(1, 2023)}")
+
+}
+
+fun formatStringParams(vararg params: String): String? {
+    var result = ""
+    for (param in params) {
+        if (param.isNotEmpty()) {
+            result += "$param "
+        }
+    }
+    return result
+}
+
 fun getHebrewDay(vararg params: String): String? {
+    Log.d("getHebrewDay", params[0])
     return params[0]
+}
+
+private fun getDayOfWeek(): Int {
+    val mCalendar = Calendar.getInstance()
+    val dayOfWeek = mCalendar.get(Calendar.DAY_OF_WEEK)
+    return dayOfWeek
+
 }
 
 private fun getFirstDateOfMonth(month: Int, year: Int): Int {
     val mCalendar = Calendar.getInstance()
+    // mCalendar.set(Calendar.MONTH, if(month==0) 1 else month)
     mCalendar.set(Calendar.MONTH, month)
     mCalendar.set(Calendar.YEAR, year)
     mCalendar.set(Calendar.DAY_OF_MONTH, 1)
     Log.d("IgorTest", "getFirstDayOfWeek is = ${mCalendar.get(Calendar.DAY_OF_WEEK)}")
     return mCalendar.get(Calendar.DAY_OF_WEEK)
+}
+
+
+private fun getMonthDays(monthIndex: Int): Int {
+    val mCalendar = Calendar.getInstance()
+    mCalendar.set(Calendar.MONTH, monthIndex)
+    return mCalendar.getActualMaximum(Calendar.DAY_OF_MONTH)
 }
 
 
