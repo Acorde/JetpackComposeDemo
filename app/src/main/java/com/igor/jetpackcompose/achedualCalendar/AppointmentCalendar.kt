@@ -243,65 +243,29 @@ fun ScheduleCalendarItem(
     onItemClick: (Int) -> Unit
 ) {
 
-    //    val jd: JewishDate = JewishCalendar() // current date 23 Nissan, 5773
-    //    val hdf = HebrewDateFormatter()
-    //    hdf.isHebrewFormat = true
-    //    jd.setDate(Calendar.getInstance().time) // set the date to 21 Shevat, 5729
-    //
-    //    val hDate = getHebrewDay(
-    //        hdf.formatHebrewNumber(jd.jewishDayOfMonth),
-    //        hdf.formatMonth(jd)
-    //    )
-
-    //Log.d("IgorDateTest", "day is $day \n calendar is: ${SimpleDateFormat("dd/MM/yyyy").format(calendar.time)}")
-
-
     val mItemState =
         remember(mSelectedDate) { mutableStateOf(if (mSelectedDate == day) SELECTED else ENABLE) }
 
-
-
-    Log.d(
-        "IgorDateTest",
-        "day is $day \n " +
-                "hebrew calendar is: ${SimpleDateFormat("dd/MM/yyyy").format(hebrewCalendar.time)} \n" +
-                "calendar is: ${SimpleDateFormat("dd/MM/yyyy").format(calendar.time)}"
+    hebrewCalendar.setDate(
+        Calendar.getInstance().apply {
+            this.time = calendar.apply {
+                this.set(Calendar.SECOND, 0)
+                this.set(Calendar.MINUTE, 0)
+                this.set(Calendar.HOUR, 0)
+            }.time
+            this.set(Calendar.DAY_OF_MONTH, day)
+        }
     )
 
 
-//    val jewishDate = remember {
-//        mutableStateOf(
-//            hebrewCalendar.setDate(
-//                Calendar.getInstance().apply { this.time = calendar.time }
-//                    .apply { this.set(Calendar.DAY_OF_MONTH, day) })
-//        )
-//    }
-
-
-    var hebrewDateLetter by remember {
-        mutableStateOf("")
-    }
-
-    LaunchedEffect(key1 = day, block = {
-
-        hebrewCalendar.setDate(
-            Calendar.getInstance().apply {
-                this.time = calendar.apply {
-                    this.set(Calendar.SECOND, 0)
-                    this.set(Calendar.MINUTE, 0)
-                    this.set(Calendar.HOUR, 0)
-                }.time
-                this.set(Calendar.DAY_OF_MONTH, day)
-            }
-        )
-
-        hebrewDateLetter = getHebrewDay(
+    val hebrewDateLetter by remember(day) {
+        mutableStateOf(getHebrewDay(
             hebrewFormatter.formatHebrewNumber(
                 hebrewCalendar.jewishDayOfMonth
             ), hebrewFormatter.formatMonth(hebrewCalendar)
-        ).toString()
+        ).toString())
+    }
 
-    })
     Log.d(
         "hebrewDateLetter",
         " ${SimpleDateFormat("dd/MM/yyyy").format(hebrewCalendar.time)} -  $hebrewDateLetter"
