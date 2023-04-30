@@ -50,11 +50,15 @@ fun ScheduleCalendarWrapper() {
         })
     }
 
+    var mHebrewYear by remember { mutableStateOf("") }
+
     val mSelectedMonth = remember { mutableStateOf(mCalendar.value.get(Calendar.MONTH)) }
 
     val mSelectedDate = remember { mutableStateOf(mCalendar.value.get(Calendar.DAY_OF_MONTH)) }
 
     var monthDaysNumber by remember { mutableStateOf(mCalendar.value.getActualMaximum(Calendar.DAY_OF_MONTH)) }
+
+    val monthArr = remember { mutableStateMapOf<String, String>() }
 
 
     var mFirstDatOfMonth by remember {
@@ -86,6 +90,10 @@ fun ScheduleCalendarWrapper() {
         monthDaysNumber = mCalendar.value.getActualMaximum(Calendar.DAY_OF_MONTH)
         mFirstDatOfMonth =
             getFirstDateOfMonth(month = mSelectedMonth.value, mCalendar.value.get(Calendar.YEAR))
+        mCalendar.value.set(Calendar.DAY_OF_MONTH, 1)
+        mHebrewCalendar.setDate(mCalendar.value.time)
+        monthArr.clear()
+        mHebrewYear = mHebrewCalendarDateFormatter.formatHebrewNumber(mHebrewCalendar.jewishYear)
 
     })
 
@@ -95,7 +103,12 @@ fun ScheduleCalendarWrapper() {
                 modifier = Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                ScheduleCalendarMontHeader(mSelectedMonth = mSelectedMonth, mCalendar = mCalendar)
+                ScheduleCalendarMontHeader(
+                    mSelectedMonth = mSelectedMonth,
+                    mCalendar = mCalendar,
+                    monthArr = monthArr,
+                    mHebrewYear = mHebrewYear
+                )
                 Spacer(modifier = Modifier.padding(30.dp))
                 ScheduleCalendar(
                     month = mSelectedMonth,
@@ -104,7 +117,8 @@ fun ScheduleCalendarWrapper() {
                     selectedDate = mSelectedDate,
                     mCalendar = mCalendar,
                     monthDaysNumber = monthDaysNumber,
-                    mFirstDatOfMonth = mFirstDatOfMonth
+                    mFirstDatOfMonth = mFirstDatOfMonth,
+                    monthArr = monthArr
                 )
             }
         }
@@ -122,7 +136,8 @@ fun ScheduleCalendar(
     hebrewCalendar: JewishCalendar,
     hebrewFormatter: HebrewDateFormatter,
     monthDaysNumber: Int,
-    mFirstDatOfMonth: Int
+    mFirstDatOfMonth: Int,
+    monthArr: MutableMap<String, String>
 ) {
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
 
@@ -167,6 +182,7 @@ fun ScheduleCalendar(
                         calendar = mCalendar.value,
                         hebrewCalendar = hebrewCalendar,
                         hebrewFormatter = hebrewFormatter,
+                        monthArr = monthArr,
                         mSelectedDate = selectedDate.value
                     ) { clickedDay ->
                         selectedDate.value = clickedDay
@@ -182,7 +198,9 @@ fun ScheduleCalendar(
 @Composable
 fun ScheduleCalendarMontHeader(
     mSelectedMonth: MutableState<Int>,
-    mCalendar: MutableState<Calendar>
+    mCalendar: MutableState<Calendar>,
+    monthArr: MutableMap<String, String>,
+    mHebrewYear: String
 ) {
 
     val mContext = LocalContext.current
@@ -217,7 +235,15 @@ fun ScheduleCalendarMontHeader(
                     mSelectedMonth.value += 1
                 }
         )
-        Text(text = mHebrewMonthName, modifier = Modifier.wrapContentWidth(), fontSize = 30.sp)
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(text = mHebrewMonthName, modifier = Modifier.wrapContentWidth(), fontSize = 30.sp)
+            Text(
+                text = "${monthArr.entries.joinToString(separator = "-") { it.value }} $mHebrewYear",
+                modifier = Modifier.wrapContentWidth(),
+                fontSize = 20.sp
+            )
+
+        }
         Icon(
             imageVector = Icons.Outlined.KeyboardArrowRight,
             contentDescription = "",
@@ -240,35 +266,56 @@ fun ScheduleCalendarItem(
     mSelectedDate: Int,
     hebrewCalendar: JewishCalendar,
     hebrewFormatter: HebrewDateFormatter,
+    monthArr: MutableMap<String, String>,
     onItemClick: (Int) -> Unit
 ) {
+
 
     val mItemState =
         remember(mSelectedDate) { mutableStateOf(if (mSelectedDate == day) SELECTED else ENABLE) }
 
-    hebrewCalendar.setDate(
-        Calendar.getInstance().apply {
-            this.time = calendar.apply {
-                this.set(Calendar.SECOND, 0)
-                this.set(Calendar.MINUTE, 0)
-                this.set(Calendar.HOUR, 0)
-            }.time
-            this.set(Calendar.DAY_OF_MONTH, day)
-        }
-    )
+    var hebrewDateLetter by remember { mutableStateOf("") }
+
+    LaunchedEffect(key1 = day, block = {
+        hebrewCalendar.setDate(
+            Calendar.getInstance().apply {
+                this.time = calendar.apply {
+                    this.set(Calendar.SECOND, 0)
+                    this.set(Calendar.MINUTE, 0)
+                    this.set(Calendar.HOUR, 0)
+                }.time
+                this.set(Calendar.DAY_OF_MONTH, day)
+            }
+        )
+
+        hebrewDateLetter =
+            getHebrewDay(
+                hebrewFormatter.formatHebrewNumber(
+                    hebrewCalendar.jewishDayOfMonth
+                ), hebrewFormatter.formatMonth(hebrewCalendar)
+            ).toString()
 
 
-    val hebrewDateLetter by remember(day) {
-        mutableStateOf(getHebrewDay(
-            hebrewFormatter.formatHebrewNumber(
-                hebrewCalendar.jewishDayOfMonth
-            ), hebrewFormatter.formatMonth(hebrewCalendar)
-        ).toString())
-    }
+        val mHebrewMonth = hebrewFormatter.formatMonth(hebrewCalendar)
+        monthArr[mHebrewMonth] = mHebrewMonth
+        Log.d("IgorMap", "${monthArr.values.toList()}")
+    })
+
+
+
+
+
+
+
+
 
     Log.d(
         "hebrewDateLetter",
         " ${SimpleDateFormat("dd/MM/yyyy").format(hebrewCalendar.time)} -  $hebrewDateLetter"
+    )
+    Log.d(
+        "aaaaaaa",
+        " ${hebrewFormatter.formatHebrewNumber(hebrewCalendar.jewishYear)}"
     )
 
     Card(modifier = Modifier
@@ -400,7 +447,7 @@ fun formatStringParams(vararg params: String): String? {
 }
 
 fun getHebrewDay(vararg params: String): String? {
-    Log.d("getHebrewDay", params[0])
+    Log.d("getHebrewDay", params.toString())
     return params[0]
 }
 
