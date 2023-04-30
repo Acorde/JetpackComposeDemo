@@ -6,239 +6,239 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="26"
-8-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml
+8-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="31" />
-9-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml
+9-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-11-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:6:5-81
-11-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:6:22-78
+11-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:6:5-81
+11-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:6:22-78
 12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-12-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:7:5-80
-12-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:7:22-77
+12-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:7:5-80
+12-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:7:22-77
 13    <uses-permission android:name="android.permission.INTERNET" />
-13-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:8:5-66
-13-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:8:22-64
+13-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:8:5-66
+13-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:8:22-64
 14    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-14-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:116:5-81
-14-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:116:22-78
+14-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:116:5-81
+14-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:116:22-78
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:8:5-66
-15-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:8:22-64
+15-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:8:5-66
+15-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:8:22-64
 16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-16-->[com.pierfrancescosoffritti.androidyoutubeplayer:core:8.0.1] /Users/igor.f/.gradle/caches/transforms-3/fa59bfcf83a4469dd51c25771a45553e/transformed/jetified-core-8.0.1/AndroidManifest.xml:12:5-79
-16-->[com.pierfrancescosoffritti.androidyoutubeplayer:core:8.0.1] /Users/igor.f/.gradle/caches/transforms-3/fa59bfcf83a4469dd51c25771a45553e/transformed/jetified-core-8.0.1/AndroidManifest.xml:12:22-76
+16-->[com.pierfrancescosoffritti.androidyoutubeplayer:core:8.0.1] /Users/igor.f/.gradle/caches/transforms-3/31d672ccfe0b9c00a3a33a22a6e94a2e/transformed/jetified-core-8.0.1/AndroidManifest.xml:12:5-79
+16-->[com.pierfrancescosoffritti.androidyoutubeplayer:core:8.0.1] /Users/igor.f/.gradle/caches/transforms-3/31d672ccfe0b9c00a3a33a22a6e94a2e/transformed/jetified-core-8.0.1/AndroidManifest.xml:12:22-76
 17
 18    <application
-18-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:10:5-115:19
+18-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:10:5-115:19
 19        android:allowBackup="true"
-19-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:11:9-35
+19-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:11:9-35
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 20-->[androidx.core:core:1.7.0] /Users/igor.f/.gradle/caches/transforms-3/d560c4a192d5cdf8e7cf8f3d0a64abaa/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
 21        android:debuggable="true"
 22        android:extractNativeLibs="false"
 23        android:hardwareAccelerated="true"
-23-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:16:9-43
+23-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:16:9-43
 24        android:icon="@mipmap/ic_launcher"
-24-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:12:9-43
+24-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:12:9-43
 25        android:label="@string/app_name"
-25-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:13:9-41
+25-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:13:9-41
 26        android:roundIcon="@mipmap/ic_launcher_round"
-26-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:14:9-54
+26-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:14:9-54
 27        android:supportsRtl="true"
-27-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:15:9-35
+27-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:15:9-35
 28        android:testOnly="true"
 29        android:theme="@style/Theme.JetpackCompose" >
-29-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:17:9-52
+29-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:17:9-52
 30        <activity
-30-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:18:9-20:40
+30-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:18:9-20:40
 31            android:name="com.igor.jetpackcompose.ui.AnimationActivity"
-31-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:19:13-49
+31-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:19:13-49
 32            android:exported="false" />
-32-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:20:13-37
+32-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:20:13-37
 33        <activity
-33-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:21:9-25:71
+33-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:21:9-25:71
 34            android:name="com.igor.jetpackcompose.ui.ListAndAnimationActivity"
-34-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:22:13-56
+34-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:22:13-56
 35            android:exported="false"
-35-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:23:13-37
+35-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:23:13-37
 36            android:label="@string/title_activity_list_and_animation"
-36-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:24:13-70
+36-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:24:13-70
 37            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-37-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:25:13-68
+37-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:25:13-68
 38        <activity
-38-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:26:9-30:71
+38-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:26:9-30:71
 39            android:name="com.igor.jetpackcompose.TestActivity"
-39-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:27:13-41
+39-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:27:13-41
 40            android:exported="false"
-40-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:28:13-37
+40-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:28:13-37
 41            android:label="@string/title_activity_test"
-41-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:29:13-56
+41-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:29:13-56
 42            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-42-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:30:13-68
+42-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:30:13-68
 43        <activity
-43-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:31:9-35:71
+43-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:31:9-35:71
 44            android:name="com.igor.jetpackcompose.TabsActivity"
-44-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:32:13-41
+44-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:32:13-41
 45            android:exported="false"
-45-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:33:13-37
+45-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:33:13-37
 46            android:label="@string/title_activity_tabs"
-46-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:34:13-56
+46-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:34:13-56
 47            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-47-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:35:13-68
+47-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:35:13-68
 48        <activity
-48-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:36:9-40:71
+48-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:36:9-40:71
 49            android:name="com.igor.jetpackcompose.ui.MeuhedetActivity"
-49-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:37:13-48
+49-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:37:13-48
 50            android:exported="false"
-50-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:38:13-37
+50-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:38:13-37
 51            android:label="@string/title_activity_meuhedet"
-51-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:39:13-60
+51-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:39:13-60
 52            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-52-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:40:13-68
+52-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:40:13-68
 53        <activity
-53-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:41:9-45:71
+53-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:41:9-45:71
 54            android:name="com.igor.jetpackcompose.LazyColumActivity"
-54-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:42:13-46
+54-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:42:13-46
 55            android:exported="true"
-55-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:43:13-36
+55-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:43:13-36
 56            android:label="@string/title_activity_lazt_colum"
-56-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:44:13-62
+56-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:44:13-62
 57            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-57-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:45:13-68
+57-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:45:13-68
 58        <activity
-58-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:46:9-50:71
+58-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:46:9-50:71
 59            android:name="com.igor.jetpackcompose.ExpandableCardActivity"
-59-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:47:13-51
+59-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:47:13-51
 60            android:exported="true"
-60-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:48:13-36
+60-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:48:13-36
 61            android:label="@string/title_activity_expandable_card"
-61-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:49:13-67
+61-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:49:13-67
 62            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-62-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:50:13-68
+62-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:50:13-68
 63        <activity
-63-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:51:9-55:71
+63-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:51:9-55:71
 64            android:name="com.igor.jetpackcompose.TextCostomizationActivity"
-64-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:52:13-54
+64-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:52:13-54
 65            android:exported="true"
-65-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:53:13-36
+65-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:53:13-36
 66            android:label="@string/title_activity_text_costomization"
-66-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:54:13-70
+66-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:54:13-70
 67            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-67-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:55:13-68
+67-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:55:13-68
 68        <activity
-68-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:56:9-60:71
+68-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:56:9-60:71
 69            android:name="com.igor.jetpackcompose.BoxLayoutActivity"
-69-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:57:13-46
+69-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:57:13-46
 70            android:exported="true"
-70-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:58:13-36
+70-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:58:13-36
 71            android:label="@string/title_activity_box_layout"
-71-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:59:13-62
+71-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:59:13-62
 72            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-72-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:60:13-68
+72-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:60:13-68
 73        <activity
-73-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:61:9-65:71
+73-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:61:9-65:71
 74            android:name="com.igor.jetpackcompose.RowActivity"
-74-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:62:13-40
+74-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:62:13-40
 75            android:exported="false"
-75-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:63:13-37
+75-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:63:13-37
 76            android:label="@string/title_activity_row"
-76-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:64:13-55
+76-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:64:13-55
 77            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-77-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:65:13-68
+77-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:65:13-68
 78        <activity
-78-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:66:9-70:71
+78-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:66:9-70:71
 79            android:name="com.igor.jetpackcompose.ColumnActivity"
-79-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:67:13-43
+79-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:67:13-43
 80            android:exported="false"
-80-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:68:13-37
+80-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:68:13-37
 81            android:label="@string/title_activity_column"
-81-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:69:13-58
+81-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:69:13-58
 82            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-82-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:70:13-68
+82-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:70:13-68
 83        <activity
-83-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:71:9-75:71
+83-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:71:9-75:71
 84            android:name="com.igor.jetpackcompose.MessagesListActivity"
-84-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:72:13-49
+84-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:72:13-49
 85            android:exported="false"
-85-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:73:13-37
+85-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:73:13-37
 86            android:label="@string/title_activity_messages_list"
-86-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:74:13-65
+86-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:74:13-65
 87            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-87-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:75:13-68
+87-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:75:13-68
 88        <activity
-88-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:76:9-80:71
+88-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:76:9-80:71
 89            android:name="com.igor.jetpackcompose.OneMessageActivity"
-89-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:77:13-47
+89-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:77:13-47
 90            android:exported="false"
-90-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:78:13-37
+90-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:78:13-37
 91            android:label="@string/title_activity_one_message"
-91-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:79:13-63
+91-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:79:13-63
 92            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-92-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:80:13-68
+92-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:80:13-68
 93        <activity
-93-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:81:9-85:71
+93-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:81:9-85:71
 94            android:name="com.igor.jetpackcompose.view_pager.ViewPagerActivity"
-94-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:82:13-57
+94-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:82:13-57
 95            android:exported="false"
-95-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:83:13-37
+95-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:83:13-37
 96            android:label="@string/title_activity_view_pager"
-96-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:84:13-62
+96-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:84:13-62
 97            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-97-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:85:13-68
+97-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:85:13-68
 98        <activity
-98-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:86:9-90:71
+98-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:86:9-90:71
 99            android:name="com.igor.jetpackcompose.download_manager.DownloadActivity"
-99-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:87:13-62
+99-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:87:13-62
 100            android:exported="false"
-100-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:88:13-37
+100-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:88:13-37
 101            android:label="@string/title_activity_view_pager"
-101-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:89:13-62
+101-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:89:13-62
 102            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-102-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:90:13-68
+102-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:90:13-68
 103        <activity
-103-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:92:9-96:70
+103-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:92:9-96:70
 104            android:name="com.igor.flow.FlowActivity"
-104-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:93:13-54
+104-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:93:13-54
 105            android:exported="true"
-105-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:94:13-36
+105-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:94:13-36
 106            android:label="@string/app_name"
-106-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:95:13-45
+106-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:95:13-45
 107            android:theme="@style/Theme.JetpackCompose.NoActionBar" />
-107-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:96:13-68
+107-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:96:13-68
 108        <activity
-108-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:98:9-109:20
+108-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:98:9-109:20
 109            android:name="com.igor.jetpackcompose.MainActivity"
-109-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:99:13-41
+109-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:99:13-41
 110            android:exported="true"
-110-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:100:13-36
+110-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:100:13-36
 111            android:label="@string/app_name"
-111-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:101:13-45
+111-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:101:13-45
 112            android:theme="@style/Theme.JetpackCompose.NoActionBar" >
-112-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:102:13-68
+112-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:102:13-68
 113            <intent-filter>
-113-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:104:13-108:29
+113-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:104:13-108:29
 114                <action android:name="android.intent.action.MAIN" />
-114-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:105:17-69
-114-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:105:25-66
+114-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:105:17-69
+114-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:105:25-66
 115
 116                <category android:name="android.intent.category.LAUNCHER" />
-116-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:107:17-77
-116-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:107:27-74
+116-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:107:17-77
+116-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:107:27-74
 117            </intent-filter>
 118        </activity>
 119
 120        <receiver
-120-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:110:9-114:20
+120-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:110:9-114:20
 121            android:name="com.igor.jetpackcompose.download_manager.DownloadCompletedReceiver"
-121-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:110:19-77
+121-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:110:19-77
 122            android:exported="true" >
-122-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:110:78-101
+122-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:110:78-101
 123            <intent-filter>
-123-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:111:13-113:29
+123-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:111:13-113:29
 124                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
-124-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:112:17-81
-124-->/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/src/main/AndroidManifest.xml:112:25-79
+124-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:112:17-81
+124-->/Users/igor.f/Android/JetpackCompose/app/src/main/AndroidManifest.xml:112:25-79
 125            </intent-filter>
 126        </receiver>
 127

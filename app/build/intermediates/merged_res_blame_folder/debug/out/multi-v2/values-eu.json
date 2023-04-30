@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/igor.f/Android/MyProjects/JetpackComposeDemo/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-eu/values-eu.xml",
+            "outputFile": "/Users/igor.f/Android/JetpackCompose/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-eu/values-eu.xml",
             "map": [
                 {
                     "source": "/Users/igor.f/.gradle/caches/transforms-3/419874a05e4f6b54470c908b88f85656/transformed/jetified-ui-1.1.1/res/values-eu/values-eu.xml",
