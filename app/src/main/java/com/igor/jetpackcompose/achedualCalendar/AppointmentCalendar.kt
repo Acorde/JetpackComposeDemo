@@ -11,23 +11,26 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.KeyboardArrowLeft
-import androidx.compose.material.icons.outlined.KeyboardArrowRight
+import androidx.compose.material.icons.rounded.KeyboardArrowLeft
+import androidx.compose.material.icons.rounded.KeyboardArrowRight
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.LayoutDirection
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.*
 import com.igor.jetpackcompose.R
 import net.sourceforge.zmanim.hebrewcalendar.HebrewDateFormatter
 import net.sourceforge.zmanim.hebrewcalendar.JewishCalendar
@@ -44,7 +47,9 @@ fun ScheduleCalendarWrapper() {
     MaterialTheme {
         CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
             Column(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .padding(top = 20.dp)
+                    .fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 ScheduleCalendarMontHeader(
@@ -54,7 +59,7 @@ fun ScheduleCalendarWrapper() {
                 ) {
                     mScheduleMonth.value.setNewMonth(it)
                 }
-                Spacer(modifier = Modifier.padding(30.dp))
+                Spacer(modifier = Modifier.padding(15.dp))
                 ScheduleCalendar(
                     aScheduleCalendarMonth = mScheduleMonth.value,
                     mScheduleCalendarMonth = calendarList
@@ -78,21 +83,22 @@ fun ScheduleCalendar(
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
 
         LazyVerticalGrid(
-            cells = GridCells.Adaptive(minSize = 50.dp), modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            contentPadding = PaddingValues(horizontal = 10.dp),
+            horizontalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.spacedBy(15.dp),
+            cells = GridCells.Adaptive(minSize = 50.dp)
         ) {
             items(HebrewDateLetters.values().size) { itemIndex ->
 
                 val heb: HebrewDateLetters = HebrewDateLetters.values()[itemIndex]
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(15.dp)
-                        .aspectRatio(1f)
-                ) {
-                    Text(text = heb.getHebrewLetter(), fontWeight = FontWeight.Bold)
-                }
 
-
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = heb.getHebrewLetter(),
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center
+                )
             }
 
             itemsIndexed(mScheduleCalendarMonth) { index, mScheduleCalendarDay ->
@@ -100,8 +106,8 @@ fun ScheduleCalendar(
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(15.dp)
-                            .aspectRatio(1f)
+                            .padding(0.dp)
+//                            .aspectRatio(1f)
                     ) {
                         Text(text = " ")
                     }
@@ -157,29 +163,44 @@ fun ScheduleCalendarMontHeader(
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         Icon(
-            imageVector = Icons.Outlined.KeyboardArrowLeft,
+            imageVector = Icons.Rounded.KeyboardArrowLeft,
             contentDescription = "",
             modifier = Modifier
-                .size(40.dp)
+                .clip(CircleShape)
+                .weight(0.1f)
+                .scale(1.1f)
+                .size(35.dp)
                 .clickable {
                     mMonth.value += 1
                     onItemClick(mMonth.value)
                 }
         )
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text = mHebrewMonthName, modifier = Modifier.wrapContentWidth(), fontSize = 30.sp)
+        Column(
+            modifier = Modifier.weight(1f),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = mHebrewMonthName,
+                modifier = Modifier.wrapContentWidth(),
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold
+            )
             Text(
                 text = jewishDate,
                 modifier = Modifier.wrapContentWidth(),
-                fontSize = 20.sp
+                textAlign = TextAlign.Center,
+                fontSize = 16.sp
             )
 
         }
         Icon(
-            imageVector = Icons.Outlined.KeyboardArrowRight,
+            imageVector = Icons.Rounded.KeyboardArrowRight,
             contentDescription = "",
             modifier = Modifier
-                .size(40.dp)
+                .clip(CircleShape)
+                .weight(0.1f)
+                .scale(1.1f)
+                .size(35.dp)
                 .clickable {
                     mMonth.value -= 1
                     onItemClick(mMonth.value)
@@ -197,35 +218,56 @@ fun ScheduleCalendarItem(
     onItemClick: (ScheduleCalendarMonth.ScheduleCalendarDay) -> Unit
 ) {
 
+    val textColor by rememberUpdatedState(
+        newValue = when (day.buttonState) {
+            ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED -> Color.White
+            ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.ENABLE -> Color.Black
+            ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.DISABLE -> Color.LightGray.copy(0.5f)
+        }
+    )
 
     Card(modifier = Modifier
-        .wrapContentSize(),
+        .fillMaxSize(),
         backgroundColor = Color.Transparent,
         elevation = (if (day.buttonState == ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED) 3.dp else 0.dp),
         shape = RoundedCornerShape(100),
+        enabled = day.buttonState != ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.DISABLE,
         onClick = {
-            //TODO...
-            //if (day.buttonState == ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.ENABLE) {
-            day.buttonState =
-                ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED
-            onItemClick(day)
-            //}
+
+            if (day.buttonState == ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.ENABLE) {
+                day.buttonState =
+                    ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED
+                onItemClick(day)
+            }
         }) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(if (day.buttonState == ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED) blueBrush() else transparentBrush())
+                .aspectRatio(1f)
+                .background(if (day.buttonState == ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED) blueBrush() else transparentBrush()),
+            contentAlignment = Alignment.Center
+
 
         ) {
             Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .aspectRatio(1f),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(text = day.dayNumber.toString())
-                Text(text = day.mHebrewName!!, fontSize = 13.sp)
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = day.dayNumber.toString(),
+                    textAlign = TextAlign.Center,
+                    fontSize = 19.dp.textDp(),
+                    color = textColor
+
+                )
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = day.mHebrewName!!,
+                    textAlign = TextAlign.Center,
+                    fontSize = 14.dp.textDp(),
+                    color = textColor
+                )
             }
         }
     }
@@ -319,7 +361,7 @@ class ScheduleCalendarMonth {
     private var mJewishMonthArr: MutableMap<String, String> = mutableMapOf()
     private var mJewishYearArr: MutableMap<String, String> = mutableMapOf()
     var mSelectedDate by mutableStateOf<ScheduleCalendarDay?>(null)
-    private set
+        private set
 
     init {
         mCalendar = Calendar.getInstance().apply {
@@ -403,8 +445,11 @@ class ScheduleCalendarMonth {
                         mJewishMonthArr[mHebrewMonth] = mHebrewMonth
                         mJewishYearArr[getJewishYear()] = getJewishYear()
                         ScheduleCalendarDay(
-                            i - (mFirstDatOfMonth - 1),
-                            mHebrewCalendarDateFormatter?.formatHebrewNumber(mJewishCalendar!!.jewishDayOfMonth)
+                            dayNumber = i - (mFirstDatOfMonth - 1),
+                            mHebrewName = mHebrewCalendarDateFormatter?.formatHebrewNumber(
+                                mJewishCalendar!!.jewishDayOfMonth
+                            ),
+                            buttonState = if (i < 20) ScheduleCalendarDay.ScheduleCalendarItemState.DISABLE else ScheduleCalendarDay.ScheduleCalendarItemState.ENABLE
                         )
 
                     }
@@ -478,4 +523,9 @@ class ScheduleCalendarMonth {
 fun <T> MutableList<T>.updateItemInIndex(index: Int, element: T) {
     removeAt(index)
     add(index, element)
+}
+
+@Composable
+fun Dp.textDp(): TextUnit = with(LocalDensity.current) {
+    this@textDp.toSp()
 }
