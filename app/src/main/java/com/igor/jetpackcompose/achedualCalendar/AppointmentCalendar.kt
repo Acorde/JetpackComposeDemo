@@ -52,7 +52,7 @@ fun ScheduleCalendarWrapper() {
             Column(
                 modifier = Modifier
                     .padding(top = 20.dp)
-                    .fillMaxSize(),
+                    .wrapContentSize(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 ScheduleCalendarMontHeader(
@@ -300,9 +300,7 @@ fun ScheduleCalendarItem(
 fun PreviewCalendar() {
     MaterialTheme {
         CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
-
             ScheduleCalendarWrapper()
-
         }
     }
 }
