@@ -2,8 +2,6 @@ package com.igor.jetpackcompose.achedualCalendar
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.icu.util.HebrewCalendar
-import android.provider.CalendarContract.Calendars
 import android.util.Log
 import android.util.SparseArray
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -12,7 +10,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -25,20 +23,15 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.igor.jetpackcompose.R
-import com.igor.jetpackcompose.achedualCalendar.ScheduleCalendarItemState.*
 import net.sourceforge.zmanim.hebrewcalendar.HebrewDateFormatter
 import net.sourceforge.zmanim.hebrewcalendar.JewishCalendar
-import net.sourceforge.zmanim.hebrewcalendar.JewishDate
-import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.collections.List
 
 
@@ -63,7 +56,7 @@ fun ScheduleCalendarWrapper() {
                 }
                 Spacer(modifier = Modifier.padding(30.dp))
                 ScheduleCalendar(
-                    selectedDate = 5,
+                    aScheduleCalendarMonth = mScheduleMonth.value,
                     mScheduleCalendarMonth = calendarList
                 )
             }
@@ -76,9 +69,12 @@ fun ScheduleCalendarWrapper() {
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun ScheduleCalendar(
-    selectedDate: Int,
+    aScheduleCalendarMonth: ScheduleCalendarMonth,
     mScheduleCalendarMonth: List<ScheduleCalendarMonth.ScheduleCalendarDay>
 ) {
+
+    var mSelectedDate = aScheduleCalendarMonth.mSelectedDate
+
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
 
         LazyVerticalGrid(
@@ -99,7 +95,7 @@ fun ScheduleCalendar(
 
             }
 
-            items(mScheduleCalendarMonth) { mScheduleCalendarDay ->
+            itemsIndexed(mScheduleCalendarMonth) { index, mScheduleCalendarDay ->
                 if (mScheduleCalendarDay.dayNumber == null || mScheduleCalendarDay.mHebrewName == null) {
                     Box(
                         modifier = Modifier
@@ -112,17 +108,19 @@ fun ScheduleCalendar(
                 } else {
                     ScheduleCalendarItem(
                         day = mScheduleCalendarDay,
-                        mSelectedDate = selectedDate
                     ) { clickedDay ->
-                        //selectedDate = clickedDay.dayNumber!!
+                        mSelectedDate?.buttonState =
+                            ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.ENABLE
+                        aScheduleCalendarMonth.onDateSelected(index, clickedDay)
+                        mSelectedDate = clickedDay
+
                     }
                 }
             }
         }
     }
-
-
 }
+
 
 @Composable
 fun ScheduleCalendarMontHeader(
@@ -195,27 +193,28 @@ fun ScheduleCalendarMontHeader(
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ScheduleCalendarItem(
-    mSelectedDate: Int,
     day: ScheduleCalendarMonth.ScheduleCalendarDay,
     onItemClick: (ScheduleCalendarMonth.ScheduleCalendarDay) -> Unit
 ) {
 
 
-    val mItemState =
-        remember(mSelectedDate) { mutableStateOf(if (mSelectedDate == day.dayNumber) SELECTED else ENABLE) }
-
     Card(modifier = Modifier
         .wrapContentSize(),
         backgroundColor = Color.Transparent,
-        elevation = (if (mItemState.value == ScheduleCalendarItemState.SELECTED) 3.dp else 0.dp),
+        elevation = (if (day.buttonState == ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED) 3.dp else 0.dp),
         shape = RoundedCornerShape(100),
         onClick = {
+            //TODO...
+            //if (day.buttonState == ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.ENABLE) {
+            day.buttonState =
+                ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED
             onItemClick(day)
+            //}
         }) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(if (mItemState.value == SELECTED) blueBrush() else transparentBrush())
+                .background(if (day.buttonState == ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED) blueBrush() else transparentBrush())
 
         ) {
             Column(
@@ -245,10 +244,6 @@ fun PreviewCalendar() {
 
         }
     }
-}
-
-enum class ScheduleCalendarItemState {
-    SELECTED, ENABLE, DISABLE
 }
 
 
@@ -317,19 +312,14 @@ class ScheduleCalendarMonth {
     private var mJewishCalendar: JewishCalendar? = null
     private var mHebrewCalendarDateFormatter: HebrewDateFormatter? = null
 
-    private var mHebrewMonth: String? = null
-    private var mJewishMonth: String? = null
-    private var mJewishYear: String? = null
-
     private var georgianDate = mutableStateOf("")
     private var jewishDate = mutableStateOf("")
-
-    private val mCurrentMonth: MutableState<Int?> = mutableStateOf(null)
-
 
     private var mDays = mutableStateListOf<ScheduleCalendarDay>()
     private var mJewishMonthArr: MutableMap<String, String> = mutableMapOf()
     private var mJewishYearArr: MutableMap<String, String> = mutableMapOf()
+    var mSelectedDate by mutableStateOf<ScheduleCalendarDay?>(null)
+    private set
 
     init {
         mCalendar = Calendar.getInstance().apply {
@@ -391,6 +381,7 @@ class ScheduleCalendarMonth {
     fun getJewishDate(): MutableState<String> {
         return jewishDate
     }
+
 
     private fun setDays() {
         val dayInMonth = mCalendar!!.getActualMaximum(Calendar.DAY_OF_MONTH)
@@ -463,6 +454,28 @@ class ScheduleCalendarMonth {
         return mCalendar.get(Calendar.DAY_OF_WEEK)
     }
 
+    fun onDateSelected(index: Int, selectedDay: ScheduleCalendarDay) {
+        mDays.updateItemInIndex(index, selectedDay)
 
-    data class ScheduleCalendarDay(val dayNumber: Int?, val mHebrewName: String?) {}
+        mDays.forEach {
+            Log.d("IgorTest", "${it.buttonState}")
+        }
+    }
+
+
+    data class ScheduleCalendarDay(
+        val dayNumber: Int?,
+        val mHebrewName: String?,
+        var buttonState: ScheduleCalendarItemState = ScheduleCalendarItemState.DISABLE
+    ) {
+        enum class ScheduleCalendarItemState {
+            SELECTED, ENABLE, DISABLE
+        }
+    }
+
+}
+
+fun <T> MutableList<T>.updateItemInIndex(index: Int, element: T) {
+    removeAt(index)
+    add(index, element)
 }
