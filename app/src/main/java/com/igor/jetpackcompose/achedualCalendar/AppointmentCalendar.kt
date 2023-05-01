@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import android.util.SparseArray
+import androidx.compose.animation.*
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
@@ -24,6 +26,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
@@ -55,10 +58,11 @@ fun ScheduleCalendarWrapper() {
                 ScheduleCalendarMontHeader(
                     mSelectedMonth = mScheduleMonth.value.getCurrentMonth(),
                     mCalendar = mScheduleMonth.value.getCalendar()!!,
-                    jewishDate = mScheduleMonth.value.getJewishDate().value
-                ) {
-                    mScheduleMonth.value.setNewMonth(it)
-                }
+                    jewishDate = mScheduleMonth.value.getJewishDate().value,
+                    onChangeMonthClick = {
+                        mScheduleMonth.value.setNewMonth(it)
+                    }
+                )
                 Spacer(modifier = Modifier.padding(15.dp))
                 ScheduleCalendar(
                     aScheduleCalendarMonth = mScheduleMonth.value,
@@ -67,7 +71,6 @@ fun ScheduleCalendarWrapper() {
             }
         }
     }
-
 }
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -107,7 +110,6 @@ fun ScheduleCalendar(
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(0.dp)
-//                            .aspectRatio(1f)
                     ) {
                         Text(text = " ")
                     }
@@ -133,13 +135,11 @@ fun ScheduleCalendarMontHeader(
     mSelectedMonth: Int,
     mCalendar: Calendar,
     jewishDate: String,
-    onItemClick: (Int) -> Unit
+    onChangeMonthClick: (Int) -> Unit
 ) {
 
     val mContext = LocalContext.current
-
     val mMonth = remember(mSelectedMonth) { mutableStateOf(mSelectedMonth) }
-
     var mHebrewMonthName by remember(jewishDate) {
         mutableStateOf(
             getMonthName(
@@ -149,31 +149,28 @@ fun ScheduleCalendarMontHeader(
         )
     }
 
-
-    LaunchedEffect(key1 = mSelectedMonth, block = {
-        mHebrewMonthName = getMonthName(
-            context = mContext,
-            month = mSelectedMonth
-        ) + " ${mCalendar.get(Calendar.YEAR)}"
-    })
+    LaunchedEffect(
+        key1 = mSelectedMonth,
+        block = {
+            mHebrewMonthName = getMonthName(
+                context = mContext,
+                month = mSelectedMonth
+            ) + " ${mCalendar.get(Calendar.YEAR)}"
+        }
+    )
 
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
-        Icon(
-            imageVector = Icons.Rounded.KeyboardArrowLeft,
-            contentDescription = "",
-            modifier = Modifier
-                .clip(CircleShape)
-                .weight(0.1f)
-                .scale(1.1f)
-                .size(35.dp)
-                .clickable {
-                    mMonth.value += 1
-                    onItemClick(mMonth.value)
-                }
+        NextPrevArrowIcon(
+            modifier = Modifier.weight(0.1f),
+            icon = Icons.Rounded.KeyboardArrowLeft,
+            onClick = {
+                mMonth.value += 1
+                onChangeMonthClick(mMonth.value)
+            }
         )
         Column(
             modifier = Modifier.weight(1f),
@@ -181,37 +178,54 @@ fun ScheduleCalendarMontHeader(
         ) {
             Text(
                 text = mHebrewMonthName,
-                modifier = Modifier.wrapContentWidth(),
+                modifier = Modifier
+                    .wrapContentWidth()
+                    .animateContentSize(),
                 fontSize = 20.sp,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center
             )
             Text(
                 text = jewishDate,
-                modifier = Modifier.wrapContentWidth(),
+                modifier = Modifier
+                    .wrapContentWidth()
+                    .animateContentSize(),
                 textAlign = TextAlign.Center,
                 fontSize = 16.sp
             )
 
         }
-        Icon(
-            imageVector = Icons.Rounded.KeyboardArrowRight,
-            contentDescription = "",
-            modifier = Modifier
-                .clip(CircleShape)
-                .weight(0.1f)
-                .scale(1.1f)
-                .size(35.dp)
-                .clickable {
-                    mMonth.value -= 1
-                    onItemClick(mMonth.value)
-                }
+        NextPrevArrowIcon(
+            modifier = Modifier.weight(0.1f),
+            icon = Icons.Rounded.KeyboardArrowRight,
+            onClick = {
+                mMonth.value -= 1
+                onChangeMonthClick(mMonth.value)
+            }
         )
     }
+}
 
+@Composable
+private fun NextPrevArrowIcon(
+    modifier: Modifier,
+    icon: ImageVector,
+    onClick: () -> Unit
+) {
+    IconButton(onClick = onClick) {
+        Icon(
+            imageVector = icon,
+            contentDescription = "",
+            modifier = modifier
+                .clip(CircleShape)
+                .scale(1.1f)
+                .size(35.dp)
+        )
+    }
 }
 
 
-@OptIn(ExperimentalMaterialApi::class)
+@OptIn(ExperimentalMaterialApi::class, ExperimentalAnimationApi::class)
 @Composable
 fun ScheduleCalendarItem(
     day: ScheduleCalendarMonth.ScheduleCalendarDay,
@@ -222,18 +236,20 @@ fun ScheduleCalendarItem(
         newValue = when (day.buttonState) {
             ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED -> Color.White
             ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.ENABLE -> Color.Black
-            ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.DISABLE -> Color.LightGray.copy(0.5f)
+            ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.DISABLE -> Color.LightGray.copy(
+                0.5f
+            )
         }
     )
 
     Card(modifier = Modifier
         .fillMaxSize(),
         backgroundColor = Color.Transparent,
-        elevation = (if (day.buttonState == ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED) 3.dp else 0.dp),
+        elevation = 0.dp,
+        indication = null,
         shape = RoundedCornerShape(100),
         enabled = day.buttonState != ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.DISABLE,
         onClick = {
-
             if (day.buttonState == ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.ENABLE) {
                 day.buttonState =
                     ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED
@@ -244,10 +260,13 @@ fun ScheduleCalendarItem(
             modifier = Modifier
                 .fillMaxSize()
                 .aspectRatio(1f)
-                .background(if (day.buttonState == ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED) blueBrush() else transparentBrush()),
+                .then(
+                    when (day.buttonState == ScheduleCalendarMonth.ScheduleCalendarDay.ScheduleCalendarItemState.SELECTED) {
+                        true -> Modifier.background(blueBrush())
+                        else -> Modifier
+                    }
+                ),
             contentAlignment = Alignment.Center
-
-
         ) {
             Column(
                 verticalArrangement = Arrangement.Center,
