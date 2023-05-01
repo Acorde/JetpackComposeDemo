@@ -12,6 +12,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -37,65 +38,15 @@ import net.sourceforge.zmanim.hebrewcalendar.JewishCalendar
 import net.sourceforge.zmanim.hebrewcalendar.JewishDate
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.List
 
 
 @Composable
 fun ScheduleCalendarWrapper() {
-    val mCalendar = remember { mutableStateOf(Calendar.getInstance()) }
 
-    val mHebrewCalendar by remember { mutableStateOf(JewishCalendar()) }
-    val mHebrewCalendarDateFormatter by remember {
-        mutableStateOf(HebrewDateFormatter().apply {
-            this.isHebrewFormat = true
-        })
-    }
-
-    var mHebrewYear by remember { mutableStateOf("") }
-
-    val mSelectedMonth = remember { mutableStateOf(mCalendar.value.get(Calendar.MONTH)) }
-
-    val mSelectedDate = remember { mutableStateOf(mCalendar.value.get(Calendar.DAY_OF_MONTH)) }
-
-    var monthDaysNumber by remember { mutableStateOf(mCalendar.value.getActualMaximum(Calendar.DAY_OF_MONTH)) }
-
-    val monthArr = remember { mutableStateMapOf<String, String>() }
-
-
-    var mFirstDatOfMonth by remember {
-        mutableStateOf(
-            getFirstDateOfMonth(
-                month = mSelectedMonth.value,
-                mCalendar.value.get(Calendar.YEAR)
-            )
-        )
-    }
-
-    LaunchedEffect(key1 = mSelectedMonth.value, block = {
-
-        when (mSelectedMonth.value) {
-            12 -> {
-                val year = mCalendar.value.get(Calendar.YEAR)
-                mCalendar.value.set(Calendar.YEAR, year + 1)
-                mSelectedMonth.value = 0
-            }
-            -1 -> {
-                val year = mCalendar.value.get(Calendar.YEAR)
-                mCalendar.value.set(Calendar.YEAR, year - 1)
-                mSelectedMonth.value = 11
-            }
-
-        }
-
-        mCalendar.value.set(Calendar.MONTH, mSelectedMonth.value)
-        monthDaysNumber = mCalendar.value.getActualMaximum(Calendar.DAY_OF_MONTH)
-        mFirstDatOfMonth =
-            getFirstDateOfMonth(month = mSelectedMonth.value, mCalendar.value.get(Calendar.YEAR))
-        mCalendar.value.set(Calendar.DAY_OF_MONTH, 1)
-        mHebrewCalendar.setDate(mCalendar.value.time)
-        monthArr.clear()
-        mHebrewYear = mHebrewCalendarDateFormatter.formatHebrewNumber(mHebrewCalendar.jewishYear)
-
-    })
+    val mScheduleMonth = remember { mutableStateOf(ScheduleCalendarMonth()) }
+    val calendarList = mScheduleMonth.value.getScheduleCalendarDays()
 
     MaterialTheme {
         CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
@@ -104,21 +55,16 @@ fun ScheduleCalendarWrapper() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 ScheduleCalendarMontHeader(
-                    mSelectedMonth = mSelectedMonth,
-                    mCalendar = mCalendar,
-                    monthArr = monthArr,
-                    mHebrewYear = mHebrewYear
-                )
+                    mSelectedMonth = mScheduleMonth.value.getCurrentMonth(),
+                    mCalendar = mScheduleMonth.value.getCalendar()!!,
+                    jewishDate = mScheduleMonth.value.getJewishDate().value
+                ) {
+                    mScheduleMonth.value.setNewMonth(it)
+                }
                 Spacer(modifier = Modifier.padding(30.dp))
                 ScheduleCalendar(
-                    month = mSelectedMonth,
-                    hebrewCalendar = mHebrewCalendar,
-                    hebrewFormatter = mHebrewCalendarDateFormatter,
-                    selectedDate = mSelectedDate,
-                    mCalendar = mCalendar,
-                    monthDaysNumber = monthDaysNumber,
-                    mFirstDatOfMonth = mFirstDatOfMonth,
-                    monthArr = monthArr
+                    selectedDate = 5,
+                    mScheduleCalendarMonth = calendarList
                 )
             }
         }
@@ -130,22 +76,10 @@ fun ScheduleCalendarWrapper() {
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun ScheduleCalendar(
-    month: MutableState<Int>,
-    selectedDate: MutableState<Int>,
-    mCalendar: MutableState<Calendar>,
-    hebrewCalendar: JewishCalendar,
-    hebrewFormatter: HebrewDateFormatter,
-    monthDaysNumber: Int,
-    mFirstDatOfMonth: Int,
-    monthArr: MutableMap<String, String>
+    selectedDate: Int,
+    mScheduleCalendarMonth: List<ScheduleCalendarMonth.ScheduleCalendarDay>
 ) {
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
-
-//        val mFirstDatOfMonth =
-//            getFirstDateOfMonth(month = month.value, mCalendar.value.get(Calendar.YEAR))
-
-        val mMonthDaysNumber = monthDaysNumber + (mFirstDatOfMonth - 1)
-
 
         LazyVerticalGrid(
             cells = GridCells.Adaptive(minSize = 50.dp), modifier = Modifier.fillMaxWidth()
@@ -165,9 +99,8 @@ fun ScheduleCalendar(
 
             }
 
-            items(mMonthDaysNumber) { day ->
-
-                if (day < mFirstDatOfMonth - 1) {
+            items(mScheduleCalendarMonth) { mScheduleCalendarDay ->
+                if (mScheduleCalendarDay.dayNumber == null || mScheduleCalendarDay.mHebrewName == null) {
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
@@ -178,14 +111,10 @@ fun ScheduleCalendar(
                     }
                 } else {
                     ScheduleCalendarItem(
-                        day = (day + 1) - (mFirstDatOfMonth - 1),
-                        calendar = mCalendar.value,
-                        hebrewCalendar = hebrewCalendar,
-                        hebrewFormatter = hebrewFormatter,
-                        monthArr = monthArr,
-                        mSelectedDate = selectedDate.value
+                        day = mScheduleCalendarDay,
+                        mSelectedDate = selectedDate
                     ) { clickedDay ->
-                        selectedDate.value = clickedDay
+                        //selectedDate = clickedDay.dayNumber!!
                     }
                 }
             }
@@ -197,28 +126,31 @@ fun ScheduleCalendar(
 
 @Composable
 fun ScheduleCalendarMontHeader(
-    mSelectedMonth: MutableState<Int>,
-    mCalendar: MutableState<Calendar>,
-    monthArr: MutableMap<String, String>,
-    mHebrewYear: String
+    mSelectedMonth: Int,
+    mCalendar: Calendar,
+    jewishDate: String,
+    onItemClick: (Int) -> Unit
 ) {
 
     val mContext = LocalContext.current
 
-    var mHebrewMonthName by remember {
+    val mMonth = remember(mSelectedMonth) { mutableStateOf(mSelectedMonth) }
+
+    var mHebrewMonthName by remember(jewishDate) {
         mutableStateOf(
             getMonthName(
                 context = mContext,
-                month = mSelectedMonth.value
-            ) + " ${mCalendar.value.get(Calendar.YEAR)}"
+                month = mCalendar.get(Calendar.MONTH)
+            ) + " ${mCalendar.get(Calendar.YEAR)}"
         )
     }
 
-    LaunchedEffect(key1 = mSelectedMonth.value, block = {
+
+    LaunchedEffect(key1 = mSelectedMonth, block = {
         mHebrewMonthName = getMonthName(
             context = mContext,
-            month = mSelectedMonth.value
-        ) + " ${mCalendar.value.get(Calendar.YEAR)}"
+            month = mSelectedMonth
+        ) + " ${mCalendar.get(Calendar.YEAR)}"
     })
 
     Row(
@@ -232,13 +164,14 @@ fun ScheduleCalendarMontHeader(
             modifier = Modifier
                 .size(40.dp)
                 .clickable {
-                    mSelectedMonth.value += 1
+                    mMonth.value += 1
+                    onItemClick(mMonth.value)
                 }
         )
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text(text = mHebrewMonthName, modifier = Modifier.wrapContentWidth(), fontSize = 30.sp)
             Text(
-                text = "${monthArr.entries.joinToString(separator = "-") { it.value }} $mHebrewYear",
+                text = jewishDate,
                 modifier = Modifier.wrapContentWidth(),
                 fontSize = 20.sp
             )
@@ -250,7 +183,8 @@ fun ScheduleCalendarMontHeader(
             modifier = Modifier
                 .size(40.dp)
                 .clickable {
-                    mSelectedMonth.value -= 1
+                    mMonth.value -= 1
+                    onItemClick(mMonth.value)
                 }
         )
     }
@@ -261,62 +195,14 @@ fun ScheduleCalendarMontHeader(
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ScheduleCalendarItem(
-    day: Int,
-    calendar: Calendar,
     mSelectedDate: Int,
-    hebrewCalendar: JewishCalendar,
-    hebrewFormatter: HebrewDateFormatter,
-    monthArr: MutableMap<String, String>,
-    onItemClick: (Int) -> Unit
+    day: ScheduleCalendarMonth.ScheduleCalendarDay,
+    onItemClick: (ScheduleCalendarMonth.ScheduleCalendarDay) -> Unit
 ) {
 
 
     val mItemState =
-        remember(mSelectedDate) { mutableStateOf(if (mSelectedDate == day) SELECTED else ENABLE) }
-
-    var hebrewDateLetter by remember { mutableStateOf("") }
-
-    LaunchedEffect(key1 = day, block = {
-        hebrewCalendar.setDate(
-            Calendar.getInstance().apply {
-                this.time = calendar.apply {
-                    this.set(Calendar.SECOND, 0)
-                    this.set(Calendar.MINUTE, 0)
-                    this.set(Calendar.HOUR, 0)
-                }.time
-                this.set(Calendar.DAY_OF_MONTH, day)
-            }
-        )
-
-        hebrewDateLetter =
-            getHebrewDay(
-                hebrewFormatter.formatHebrewNumber(
-                    hebrewCalendar.jewishDayOfMonth
-                ), hebrewFormatter.formatMonth(hebrewCalendar)
-            ).toString()
-
-
-        val mHebrewMonth = hebrewFormatter.formatMonth(hebrewCalendar)
-        monthArr[mHebrewMonth] = mHebrewMonth
-        Log.d("IgorMap", "${monthArr.values.toList()}")
-    })
-
-
-
-
-
-
-
-
-
-    Log.d(
-        "hebrewDateLetter",
-        " ${SimpleDateFormat("dd/MM/yyyy").format(hebrewCalendar.time)} -  $hebrewDateLetter"
-    )
-    Log.d(
-        "aaaaaaa",
-        " ${hebrewFormatter.formatHebrewNumber(hebrewCalendar.jewishYear)}"
-    )
+        remember(mSelectedDate) { mutableStateOf(if (mSelectedDate == day.dayNumber) SELECTED else ENABLE) }
 
     Card(modifier = Modifier
         .wrapContentSize(),
@@ -339,21 +225,14 @@ fun ScheduleCalendarItem(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(text = day.toString())
-                Text(text = hebrewDateLetter, fontSize = 13.sp)
+                Text(text = day.dayNumber.toString())
+                Text(text = day.mHebrewName!!, fontSize = 13.sp)
             }
         }
     }
 
 }
 
-
-fun getHebrewDate(date: Date) {
-
-    val cal = HebrewCalendar()
-    //cal.getDisplayName()
-    cal.getDateTimeFormat(1, 1, Locale("he"))
-}
 
 @Preview(showBackground = true)
 @Preview(device = "spec:width=1920dp,height=1080dp,dpi=960")
@@ -390,91 +269,6 @@ fun HebrewDateLetters.getHebrewLetter(): String {
         HebrewDateLetters.SATURDAY -> "ש׳"
     }
 }
-//
-//fun main() {
-//    val daysOfMonth : YearMonth = YearMonth.of(2023, 5)
-//    println(daysOfMonth.lengthOfMonth())
-//}
-
-@SuppressLint("SuspiciousIndentation")
-fun main() {
-//    CoroutineScope(Dispatchers.IO).launch {
-//        val cal = HebrewCalendar.getInstance()
-//        launch(Dispatchers.Main) {
-//            val sd = SimpleDateFormat("EEEE")
-//            // cal.getDisplayName()
-//            val hDate = sd.format(cal.time)
-//            // val dd = cal.getDateTimeFormat(1, 1, ULocale.Category.FORMAT)
-//            println("hDate= $hDate")
-//            println(".......******.......")
-//        }
-//
-//    }
-
-
-    val jd: JewishDate = JewishCalendar() // current date 23 Nissan, 5773
-    val hdf = HebrewDateFormatter()
-    hdf.isHebrewFormat = true
-    jd.setDate(Calendar.getInstance().time) // set the date to 21 Shevat, 5729
-
-    val hDate = getHebrewDay(
-        hdf.formatHebrewNumber(jd.jewishDayOfMonth),
-        hdf.formatMonth(jd)
-    )
-
-    val mCalendar = Calendar.getInstance()
-    val monthDaysNumber = mCalendar.getActualMaximum(Calendar.DAY_OF_WEEK_IN_MONTH)
-    val currentMonth = mCalendar.get(Calendar.MONTH)
-    val dayOfWeek = mCalendar.get(Calendar.DAY_OF_WEEK)
-    val dayOfMonth = mCalendar.get(Calendar.DAY_OF_MONTH)
-    println("hDate is : $hDate")
-    println("currentMonth is : $currentMonth")
-    println("monthDaysNumber is : $monthDaysNumber")
-    println("dayOfWeek is : $dayOfWeek")
-    println("dayOfMonth is : $dayOfMonth")
-    println("firstDayOfWeek is : ${getFirstDateOfMonth(1, 2023)}")
-
-}
-
-fun formatStringParams(vararg params: String): String? {
-    var result = ""
-    for (param in params) {
-        if (param.isNotEmpty()) {
-            result += "$param "
-        }
-    }
-    return result
-}
-
-fun getHebrewDay(vararg params: String): String? {
-    Log.d("getHebrewDay", params.toString())
-    return params[0]
-}
-
-private fun getDayOfWeek(): Int {
-    val mCalendar = Calendar.getInstance()
-    val dayOfWeek = mCalendar.get(Calendar.DAY_OF_WEEK)
-    return dayOfWeek
-
-}
-
-private fun getFirstDateOfMonth(month: Int, year: Int): Int {
-    val mCalendar = Calendar.getInstance()
-    // mCalendar.set(Calendar.MONTH, if(month==0) 1 else month)
-    mCalendar.set(Calendar.MONTH, month)
-    mCalendar.set(Calendar.YEAR, year)
-    mCalendar.set(Calendar.DAY_OF_MONTH, 1)
-    Log.d("IgorTest", "getFirstDayOfWeek is = ${mCalendar.get(Calendar.DAY_OF_WEEK)}")
-    return mCalendar.get(Calendar.DAY_OF_WEEK)
-}
-
-
-private fun getMonthDays(monthIndex: Int): Int {
-    val mCalendar = Calendar.getInstance()
-    mCalendar.set(Calendar.MONTH, monthIndex)
-    return mCalendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-}
-
 
 @Composable
 fun blueBrush(): Brush {
@@ -514,4 +308,161 @@ fun getMonthName(context: Context, month: Int?): String? {
     return if (monthNames[month!!] != null) {
         monthNames.valueAt(month)
     } else null
+}
+
+class ScheduleCalendarMonth {
+
+    private var mCalendar: Calendar? = null
+
+    private var mJewishCalendar: JewishCalendar? = null
+    private var mHebrewCalendarDateFormatter: HebrewDateFormatter? = null
+
+    private var mHebrewMonth: String? = null
+    private var mJewishMonth: String? = null
+    private var mJewishYear: String? = null
+
+    private var georgianDate = mutableStateOf("")
+    private var jewishDate = mutableStateOf("")
+
+    private val mCurrentMonth: MutableState<Int?> = mutableStateOf(null)
+
+
+    private var mDays = mutableStateListOf<ScheduleCalendarDay>()
+    private var mJewishMonthArr: MutableMap<String, String> = mutableMapOf()
+    private var mJewishYearArr: MutableMap<String, String> = mutableMapOf()
+
+    init {
+        mCalendar = Calendar.getInstance().apply {
+            this.set(Calendar.SECOND, 0)
+            this.set(Calendar.MINUTE, 0)
+            this.set(Calendar.HOUR, 0)
+        }
+        mJewishCalendar = JewishCalendar()
+        mHebrewCalendarDateFormatter = HebrewDateFormatter().apply { this.isHebrewFormat = true }
+        setNewMonth(mCalendar!!.get(Calendar.MONTH))
+    }
+
+
+    fun setNewMonth(month: Int) {
+        mCalendar!!.set(Calendar.DAY_OF_MONTH, 1)
+        mCalendar!!.set(Calendar.MONTH, handleMonth(month))
+        mJewishCalendar?.setDate(mCalendar!!.time)
+        mDays.clear()
+        mJewishMonthArr.clear()
+        mJewishYearArr.clear()
+        setDays()
+        setGeorgianDate()
+        setJewishDate()
+    }
+
+    private fun handleMonth(month: Int): Int {
+        return when (month) {
+            12 -> {
+                val year = mCalendar!!.get(Calendar.YEAR)
+                mCalendar!!.set(Calendar.YEAR, year + 1)
+                0
+            }
+            -1 -> {
+                val year = mCalendar!!.get(Calendar.YEAR)
+                mCalendar!!.set(Calendar.YEAR, year - 1)
+                11
+            }
+            else -> {
+                month
+            }
+
+        }
+    }
+
+    private fun setJewishDate() {
+        jewishDate.value = ""
+        jewishDate.value = getJewishYearName()
+    }
+
+    fun getCurrentMonth(): Int {
+        return mCalendar!!.get(Calendar.MONTH)
+    }
+
+    private fun setGeorgianDate() {
+        georgianDate.value = ""
+        georgianDate.value = getJewishYearName()
+    }
+
+    fun getJewishDate(): MutableState<String> {
+        return jewishDate
+    }
+
+    private fun setDays() {
+        val dayInMonth = mCalendar!!.getActualMaximum(Calendar.DAY_OF_MONTH)
+        val mFirstDatOfMonth =
+            getFirstDateOfMonth(mCalendar!!.get(Calendar.MONTH), mCalendar!!.get(Calendar.YEAR))
+
+
+        for (i in 1..(dayInMonth + (mFirstDatOfMonth - 1))) {
+            mDays.add(
+                when {
+                    i < mFirstDatOfMonth -> ScheduleCalendarDay(null, null)
+                    else -> {
+                        mCalendar!!.set(Calendar.DAY_OF_MONTH, i - (mFirstDatOfMonth - 1))
+                        mJewishCalendar!!.setDate(mCalendar)
+
+                        val mHebrewMonth =
+                            mHebrewCalendarDateFormatter!!.formatMonth(mJewishCalendar)
+
+                        mJewishMonthArr[mHebrewMonth] = mHebrewMonth
+                        mJewishYearArr[getJewishYear()] = getJewishYear()
+                        ScheduleCalendarDay(
+                            i - (mFirstDatOfMonth - 1),
+                            mHebrewCalendarDateFormatter?.formatHebrewNumber(mJewishCalendar!!.jewishDayOfMonth)
+                        )
+
+                    }
+                }
+            )
+        }
+
+    }
+
+    fun getScheduleCalendarDays(): List<ScheduleCalendarDay> {
+        return mDays
+    }
+
+    fun getCalendar(): Calendar? {
+        return mCalendar
+    }
+
+    private fun getHebrewMonths(): String {
+        return mJewishMonthArr.entries.joinToString(separator = "-") { it.value }
+    }
+
+    private fun getJewishYear(): String {
+        return mHebrewCalendarDateFormatter!!.formatHebrewNumber(mJewishCalendar!!.jewishYear)
+    }
+
+    private fun getJewishYearName(): String {
+
+        return when (mJewishYearArr.size > 1) {
+            true -> {
+                var text = ""
+                mJewishYearArr.keys.forEachIndexed { index, c ->
+                    text += "${mJewishMonthArr.keys.toList()[index]} $c ${if (index < mJewishYearArr.toList().lastIndex) " - " else ""}"
+                }
+                text
+            }
+            else -> {
+                "${getHebrewMonths()} ${getJewishYear()}"
+            }
+        }
+    }
+
+    private fun getFirstDateOfMonth(month: Int, year: Int): Int {
+        val mCalendar = Calendar.getInstance()
+        mCalendar.set(Calendar.MONTH, month)
+        mCalendar.set(Calendar.YEAR, year)
+        mCalendar.set(Calendar.DAY_OF_MONTH, 1)
+        return mCalendar.get(Calendar.DAY_OF_WEEK)
+    }
+
+
+    data class ScheduleCalendarDay(val dayNumber: Int?, val mHebrewName: String?) {}
 }
