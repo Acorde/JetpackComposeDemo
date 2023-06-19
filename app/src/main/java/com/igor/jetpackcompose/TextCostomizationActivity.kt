@@ -212,14 +212,14 @@ fun PartClickableText(
 @Composable
 fun ColumnScope.TextCostomizationAnnotatedString() {
     Text(
-        buildAnnotatedString {
+       text =  buildAnnotatedString {
             withStyle(style = ParagraphStyle(textAlign = TextAlign.Center)) {
 
                 withStyle(
                     style = SpanStyle(
                         color = Color.Red,
-                        fontSize = 30.sp,
-                        fontWeight = FontWeight.Bold
+//                        fontSize = 30.sp,
+//                        fontWeight = FontWeight.Bold
                     )
                 ) {
                     append("A")
