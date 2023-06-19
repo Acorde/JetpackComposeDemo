@@ -57,26 +57,40 @@ fun CustomToggle(modifier: Modifier = Modifier, toggleWidth: Dp = 80.dp, toggleH
     ) {
 
 
-        Box() {
+        Box {
             var isChecked by remember { mutableStateOf(false) }
+
+            var cloudsOffset = animateOffsetAsState(
+                targetValue = Offset(
+                    x = Random.nextDouble(until =  toggleWidth.value.toDouble()).toFloat(),
+                    y = 0f),
+               // targetValue = Offset(0f, 0f),
+                animationSpec = infiniteRepeatable(
+                    animation = tween(500),
+                    repeatMode = RepeatMode.Restart
+                )
+            )
 
 
 //            LaunchedEffect(key1 = true, block = {
 //                if (isChecked) {
 //                    animate(
-//                        initialValue = 0f,
-//                        targetValue = 0f,
 //                        animationSpec = infiniteRepeatable(
-//                            animation = animateFloatAsState(
-//                                targetValue = Random.nextFloat(
-//                                    0,
-//                                    toggleHeight
-//                                )
-//                            )
-//                        )
+//                            animation = tween(100),
+//                            repeatMode = RepeatMode.Reverse
+//                        ),
+//                        block = {
 //
-//
+//                        }
 //                    )
+////                    val color by animateOffsetAsState(
+////                        initialValue = Color.Blue,
+////                        targetValue = Color.Green,
+////                        animationSpec = infiniteRepeatable(
+////                            animation = tween(2000),
+////                            repeatMode = RepeatMode.Reverse
+////                        )
+////                    )
 //                }
 //            })
             Box(modifier = Modifier.fillMaxSize()) {
@@ -151,8 +165,9 @@ fun CustomToggle(modifier: Modifier = Modifier, toggleWidth: Dp = 80.dp, toggleH
 
             }
             if (isChecked) {
+                repeat(10){}
                 Image(
-                    modifier = Modifier.size(40.dp),
+                    modifier = Modifier.size(40.dp).offset(x = cloudsOffset.value.x.dp, y = cloudsOffset.value.y.dp),
                     painter = painterResource(id = R.drawable.ic_launcher_foreground),
                     contentDescription = ""
                 )
